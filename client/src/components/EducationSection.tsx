@@ -1,43 +1,40 @@
 import SectionHeader from "./SectionHeader";
+import { useQuery } from "@tanstack/react-query";
+import type { Education } from "@shared/portfolio-data";
 
-interface Education {
-  institution: string;
-  location: string;
-  degree: string;
-  period: string;
-  achievements?: string[];
-}
+export default function EducationSection() {
+  const { data: education, isLoading } = useQuery<Education[]>({
+    queryKey: ['/api/portfolio/education']
+  });
 
-interface EducationSectionProps {
-  education?: Education[];
-}
-
-export default function EducationSection({ education }: EducationSectionProps) {
-  // todo: remove mock functionality
-  const defaultEducation: Education[] = [
-    {
-      institution: "서울대학교",
-      location: "Seoul, KR",
-      degree: "컴퓨터공학 석사",
-      period: "2024 - Present",
-      achievements: [
-        "우수 학업 성취 장학금 수혜 (₩6,000,000)",
-      ]
-    },
-    {
-      institution: "연세대학교",
-      location: "Seoul, KR", 
-      degree: "컴퓨터공학 학사",
-      period: "2016 - 2022",
-      achievements: [
-        "GPA: 4.2/4.3 (상위 1%)",
-        "국가우수장학금(이공계) 수혜",
-        "공과대학 학회 회장"
-      ]
-    }
-  ];
-
-  const educationData = education || defaultEducation;
+  if (isLoading || !education) {
+    return (
+      <section id="education" className="py-16">
+        <div className="container max-w-4xl mx-auto px-4">
+          <SectionHeader title="Education" />
+          <div className="space-y-8">
+            {[1, 2].map((index) => (
+              <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="md:text-right space-y-1">
+                  <div className="h-4 bg-muted rounded animate-pulse" />
+                  <div className="h-8 bg-muted rounded animate-pulse" />
+                  <div className="h-4 bg-muted rounded animate-pulse" />
+                </div>
+                <div className="md:col-span-3 space-y-4">
+                  <div className="h-6 bg-muted rounded animate-pulse" />
+                  <div className="h-4 bg-muted rounded animate-pulse" />
+                  <div className="space-y-2">
+                    <div className="h-4 bg-muted rounded animate-pulse" />
+                    <div className="h-4 bg-muted rounded animate-pulse" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="education" className="py-16">
@@ -45,7 +42,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
         <SectionHeader title="Education" />
         
         <div className="space-y-8">
-          {educationData.map((edu, index) => (
+          {education.map((edu, index) => (
             <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="md:text-right space-y-1">
                 <div className="text-sm text-muted-foreground">
