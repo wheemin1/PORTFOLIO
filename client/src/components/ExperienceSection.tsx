@@ -66,9 +66,15 @@ export default function ExperienceSection() {
                       </h3>
                       {exp.link && (
                         <button
-                          onClick={() => window.open(exp.link, '_blank')}
+                          onClick={() => {
+                            const newWindow = window.open(exp.link, '_blank', 'noopener,noreferrer');
+                            if (newWindow) {
+                              newWindow.opener = null;
+                            }
+                          }}
                           className="text-primary hover:text-primary/80 transition-colors"
                           data-testid={`button-company-link-${index}`}
+                          aria-label={`Visit ${exp.company} website`}
                         >
                           <ExternalLink className="w-4 h-4" />
                         </button>

@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-xl items-center justify-between">
-        <div className="mr-4 hidden md:flex">
+        <div className="mr-4 flex">
           <button 
             onClick={() => scrollToSection('profile')} 
             className="text-lg font-bold text-primary hover:text-primary/80 transition-colors"
@@ -41,10 +41,10 @@ export default function Header() {
           </button>
         </div>
         
-        <nav className="flex items-center space-x-6 text-sm font-medium">
+        <nav className="flex items-center space-x-3 md:space-x-6 text-sm font-medium">
           <button 
             onClick={() => scrollToSection('about')} 
-            className="text-foreground/60 hover:text-foreground transition-colors"
+            className="text-foreground/60 hover:text-foreground transition-colors hidden sm:block"
             data-testid="link-about"
           >
             About
@@ -54,11 +54,12 @@ export default function Header() {
             className="text-foreground/60 hover:text-foreground transition-colors"
             data-testid="link-experience"
           >
-            Experience
+            <span className="hidden sm:inline">Experience</span>
+            <span className="sm:hidden">Work</span>
           </button>
           <button 
             onClick={() => scrollToSection('education')} 
-            className="text-foreground/60 hover:text-foreground transition-colors"
+            className="text-foreground/60 hover:text-foreground transition-colors hidden sm:block"
             data-testid="link-education"
           >
             Education

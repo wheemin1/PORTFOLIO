@@ -53,24 +53,45 @@ export default function ProfileSection() {
             <Button 
               variant="outline" 
               size="icon"
-              onClick={() => window.open(personalInfo.linkedinUrl, '_blank')}
+              onClick={() => {
+                const newWindow = window.open(personalInfo.linkedinUrl, '_blank', 'noopener,noreferrer');
+                if (newWindow) {
+                  newWindow.opener = null;
+                }
+              }}
               data-testid="button-linkedin"
+              aria-label="LinkedIn 프로필 방문"
             >
               <Linkedin className="h-4 w-4" />
             </Button>
             <Button 
               variant="outline" 
               size="icon"
-              onClick={() => window.open(personalInfo.githubUrl, '_blank')}
+              onClick={() => {
+                const newWindow = window.open(personalInfo.githubUrl, '_blank', 'noopener,noreferrer');
+                if (newWindow) {
+                  newWindow.opener = null;
+                }
+              }}
               data-testid="button-github"
+              aria-label="GitHub 프로필 방문"
             >
               <Github className="h-4 w-4" />
             </Button>
             <Button 
               variant="outline" 
               size="icon"
-              onClick={() => window.location.href = `mailto:${personalInfo.email}`}
+              onClick={() => {
+                try {
+                  window.location.href = `mailto:${personalInfo.email}`;
+                } catch (error) {
+                  // Fallback for environments without email client
+                  navigator.clipboard?.writeText(personalInfo.email);
+                  console.log('Email copied to clipboard:', personalInfo.email);
+                }
+              }}
               data-testid="button-email"
+              aria-label="이메일 보내기"
             >
               <Mail className="h-4 w-4" />
             </Button>

@@ -10,7 +10,10 @@ interface ToolCardProps {
 export default function ToolCard({ title, description, previewImage, link }: ToolCardProps) {
   const handleClick = () => {
     if (link) {
-      window.open(link, '_blank');
+      const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
+      if (newWindow) {
+        newWindow.opener = null;
+      }
     }
   };
 

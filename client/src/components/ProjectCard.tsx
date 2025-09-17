@@ -13,7 +13,11 @@ interface ProjectCardProps {
 export default function ProjectCard({ title, description, type, period, details, link }: ProjectCardProps) {
   const handleClick = () => {
     if (link) {
-      window.open(link, '_blank');
+      // Enhanced security with noopener noreferrer
+      const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
+      if (newWindow) {
+        newWindow.opener = null;
+      }
     }
   };
 
