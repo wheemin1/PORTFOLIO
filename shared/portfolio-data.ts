@@ -80,7 +80,7 @@ export const defaultPortfolioData: PortfolioData = {
       period: "2025 - Present",
       type: "개인 창업 (Sole Proprietorship)",
       responsibilities: [
-        "⭐식품 무역업으로 개인 창업을 통해 아이디어를 실제 비즈니스로 구현",
+        "식품 무역업으로 개인 창업을 통해 아이디어를 실제 비즈니스로 구현",
         "해외(호주) 파트너십 구축 및 시장 조사를 통해 사업 계획 수립",
         "시장 조사, 사업 계획 수립부터 정식 사업자 등록까지 직접 완료",
       ],
@@ -93,7 +93,7 @@ export const defaultPortfolioData: PortfolioData = {
       type: "사이드 프로젝트",
       responsibilities: [
         "'물물교환'의 본질적 문제를 AI로 해결하고자 하는 목표로 45개 스크린 규모의 MVP 서비스 기획",
-        "⭐ Figma를 활용하여 전체 UI/UX 와이어프레임 및 프로토타입 설계 주도",
+        "Figma를 활용하여 전체 UI/UX 와이어프레임 및 프로토타입 설계 주도",
         "API 명세 정의 및 실시간 채팅 아키텍처(RabbitMQ) 도입 제안 등 개발 협업",
         "프로젝트 로드맵을 수립하고 매주 정기 회의를 주관하며 팀 리딩",
       ],
@@ -107,7 +107,7 @@ export const defaultPortfolioData: PortfolioData = {
       responsibilities: [
         "매일 새로운 키워드에 맞는 사진을 공유하는 소셜 챌린지 앱 서비스 기획",
         "사용자 참여 유도를 위한 게이미피케이션(Gamification) 요소 및 보상 시스템 설계",
-        "⭐ 핵심 팀원(디자이너)의 이탈로 MVP 출시 전 프로젝트가 중단되었으며, 이를 통해 팀 구성의 중요성과 리소스 변동성에 대처하는 위기관리 능력의 필요성을 학습",
+        "핵심 팀원(디자이너)의 이탈로 MVP 출시 전 프로젝트가 중단되었으며, 이를 통해 팀 구성의 중요성과 리소스 변동성에 대처하는 위기관리 능력의 필요성을 학습",
       ]
     },
     {
