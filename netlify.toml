@@ -1,9 +1,9 @@
 [build]
-  publish = "dist/public"
+  publish = "dist"
   command = "npm run build:netlify"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/*"
