@@ -19,7 +19,7 @@ export default function ToolCard({ title, description, previewImage, link }: Too
 
   return (
     <Card 
-      className={`transition-all duration-200 ${link ? 'hover-elevate cursor-pointer' : ''}`}
+      className={`transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 ${link ? 'cursor-pointer' : ''}`}
       onClick={handleClick}
       data-testid={`card-tool-${title.replace(/\s+/g, '-').toLowerCase()}`}
     >

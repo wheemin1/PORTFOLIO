@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { PersonalInfo } from "@shared/portfolio-data";
-import profileImage from "@assets/generated_images/Professional_developer_headshot_7e844a45.png";
 
 export default function ProfileSection() {
   const { data: personalInfo, isLoading } = useQuery<PersonalInfo>({
@@ -30,7 +29,7 @@ export default function ProfileSection() {
       <div className="container max-w-4xl mx-auto px-4">
         <div className="text-center space-y-8">
           <Avatar className="w-32 h-32 mx-auto">
-            <AvatarImage src={personalInfo.profileImage || profileImage} alt={personalInfo.name} />
+            <AvatarImage src={personalInfo.profileImage} alt={personalInfo.name} />
             <AvatarFallback className="text-2xl font-semibold">
               {personalInfo.name.split('').slice(0, 2).join('')}
             </AvatarFallback>

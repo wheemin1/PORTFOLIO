@@ -54,224 +54,189 @@ export interface PortfolioData {
 // Default portfolio data - customize this to match your information
 export const defaultPortfolioData: PortfolioData = {
   personalInfo: {
-    name: "홍길동",
+    name: "조휘민",
     location: "Seoul, KR",
-    email: "contact@example.com",
-    bio: "안녕하세요! 저는 개발자입니다.\n\n새로운 기술을 탐구하고 시스템을 최적화하며 팀을 구축하는 것을 좋아합니다. 처음부터 새로운 도전을 다루는 느낌을 정말 좋아합니다.\n\n혁신적인 솔루션을 통해 사용자 경험을 개선하고 비즈니스 성장에 기여하는 개발자가 되기 위해 노력하고 있습니다.",
-    linkedinUrl: "https://linkedin.com",
-    githubUrl: "https://github.com"
+    email: "jowheemin@gmail.com",
+    bio: "안녕하세요! 아이디어를 현실로 만드는 메이커형 AI 서비스 기획자, 조휘민입니다.\n\n새로운 기술을 탐구하고 시스템을 최적화하며 팀을 구축하는 것을 좋아합니다. 처음부터 새로운 도전을 다루는 느낌을 정말 좋아합니다.\n\n혁신적인 솔루션을 통해 사용자 경험을 개선하고 비즈니스 성장에 기여하는 개발자가 되기 위해 노력하고 있습니다.",
+    linkedinUrl: "",
+    githubUrl: "https://github.com/wheemin1"
   },
   education: [
     {
-      institution: "서울대학교",
+      institution: "세종대학교",
       location: "Seoul, KR",
-      degree: "컴퓨터공학 석사",
-      period: "2024 - Present",
+      degree: "건설환경공학 학사 과정 (2026년 2월 졸업 예정)",
+      period: "2020 - Present",
       achievements: [
-        "우수 학업 성취 장학금 수혜 (₩6,000,000)",
-      ]
-    },
-    {
-      institution: "연세대학교",
-      location: "Seoul, KR", 
-      degree: "컴퓨터공학 학사",
-      period: "2016 - 2022",
-      achievements: [
-        "GPA: 4.2/4.3 (상위 1%)",
-        "국가우수장학금(이공계) 수혜",
-        "공과대학 학회 회장"
+        "디지털 물산업 인재 장학금 수혜 & [세종대학교] 교량 경진 대회 대상 수상",
       ]
     }
   ],
   experience: [
     {
-      company: "네이버",
-      position: "선임 개발자",
-      location: "Bundang, KR",
+      company: "앤드트레이딩 (ANDTRADING)",
+      position: "설립자 (Founder) / 대표",
+      location: "Gangdong, KR",
       period: "2025 - Present",
-      type: "정규직",
+      type: "개인 창업 (Sole Proprietorship)",
       responsibilities: [
-        "대규모 서비스 아키텍처 설계 및 개발",
-        "AI 기반 추천 시스템 최적화로 사용자 만족도 25% 향상",
+        "⭐식품 무역업으로 개인 창업을 통해 아이디어를 실제 비즈니스로 구현",
+        "해외(호주) 파트너십 구축 및 시장 조사를 통해 사업 계획 수립",
+        "시장 조사, 사업 계획 수립부터 정식 사업자 등록까지 직접 완료",
       ],
-      link: "https://www.navercorp.com"
     },
     {
-      company: "카카오",
-      position: "백엔드 개발자",
-      location: "Jeju, KR",
-      period: "2024 - Present", 
-      type: "정규직",
-      responsibilities: [
-        "실시간 메시징 시스템 성능 최적화",
-        "마이크로서비스 아키텍처 전환 프로젝트 리드",
-      ],
-      link: "https://www.kakaocorp.com"
-    },
-    {
-      company: "스타트업 A",
-      position: "공동창업자 & CTO",
+      company: "롬롬 (ROMROM)",
+      position: "서비스 기획 총괄 / Product Manager",
       location: "Seoul, KR",
+      period: "2024.09 - Present", 
+      type: "사이드 프로젝트",
+      responsibilities: [
+        "'물물교환'의 본질적 문제를 AI로 해결하고자 하는 목표로 45개 스크린 규모의 MVP 서비스 기획",
+        "⭐ Figma를 활용하여 전체 UI/UX 와이어프레임 및 프로토타입 설계 주도",
+        "API 명세 정의 및 실시간 채팅 아키텍처(RabbitMQ) 도입 제안 등 개발 협업",
+        "프로젝트 로드맵을 수립하고 매주 정기 회의를 주관하며 팀 리딩",
+      ],
+    },
+    {
+      company: "데일리스냅 (DailySnap)",
+      position: "서비스 기획 / Product Manager",
+      location: "Seoul, KR",
+      period: "2025.01 - 2025.09",
+      type: "사이드 프로젝트",
+      responsibilities: [
+        "매일 새로운 키워드에 맞는 사진을 공유하는 소셜 챌린지 앱 서비스 기획",
+        "사용자 참여 유도를 위한 게이미피케이션(Gamification) 요소 및 보상 시스템 설계",
+        "⭐ 핵심 팀원(디자이너)의 이탈로 MVP 출시 전 프로젝트가 중단되었으며, 이를 통해 팀 구성의 중요성과 리소스 변동성에 대처하는 위기관리 능력의 필요성을 학습",
+      ]
+    },
+    {
+      company: "대한민국 해병대 (Republic of Korea Marine Corps) ",
+      position: "폭발물처리팀(EHCT) 부팀장 (Vice Team Leader)",
+      location: "Yeonpyeong, KR",
       period: "2021 - 2023",
-      type: "창업",
-      responsibilities: [
-        "이커머스 플랫폼의 실시간 추천 시스템 구축",
-        "월 100만+ 사용자 대상 개인화 서비스 제공",
-        "15명 규모의 개발팀 구축 및 관리",
-        "MLOps 아키텍처 설계 및 다양한 마이크로서비스 구현",
-      ]
-    },
-    {
-      company: "삼성전자",
-      position: "연구원",
-      location: "Suwon, KR",
-      period: "2020 - 2020",
-      type: "인턴십",
-      responsibilities: [
-        "C++로 임베딩 클러스터링 알고리즘 설계 및 구현",
-        "상용 딥러닝 추천 모델의 메모리 사용량 44% 최적화",
-        "ASPLOS 2021 학회 논문 게재",
-      ]
-    },
-    {
-      company: "서울대학교 음향 연구실",
-      position: "연구 조교",
-      location: "Seoul, KR",
-      period: "2019 - 2020",
-      type: "연구",
-      responsibilities: [
-        "CNN, cGAN을 활용한 오디오 처리 아키텍처 구현",
-        "Logic Pro와 Python을 이용한 오디오/MIDI 데이터 라벨링",
-        "30곡 이상의 모델 훈련용 데이터 전처리",
-      ]
-    },
-    {
-      company: "대한민국 육군",
-      position: "의무병",
-      location: "Dongducheon, KR",
-      period: "2017 - 2019",
       type: "병역",
       responsibilities: [
-        "기계화보병사단 의무대에서 21개월간 복무",
-        "KATUSA 프로그램을 통해 한미연합군과 협력",
+        "서북도서 최전방 연평부대에서 1년간 폭발물처리팀(EHCT) 부팀장 임무 수행",
+        "⭐ 중사급 팀장을 보좌하여 지뢰 탐지 및 제거 작전 계획을 수립하고, 작전 브리핑 및 병력 통제, 임무 할당 등 팀 운영을 실질적으로 리딩",
+        "예측 불가능한 작전 환경 속에서 발생하는 다양한 변수에 대응하고, 팀원들의 안전을 확보하며 주어진 임무를 100% 완수하는 위기관리 능력 체득",
       ]
     }
   ],
   projects: [
     {
-      title: "ThunderKittens",
-      description: "오픈 소스 연구 프로젝트",
-      type: "연구 프로젝트",
-      period: "2024 - Present",
+      title: "롬롬 (RomRom)",
+      description: "AI 기반 차세대 가치 교환 플랫폼",
+      type: "AI 서비스 기획/개발 총괄 프로젝트",
+      period: "2024.09 - Present",
       details: [
-        "AI를 위한 고속 GPU 커널 작성 도구 개발",
-        "다중 GPU 커널 지원을 위한 기존 구현 확장",
-        "새로운 GPU 가상 머신 프로젝트 진행 중"
+        "45개 스크린 규모의 MVP 서비스 기획 및 전체 프로덕트 로드맵 설계",
+        "물건, 재능, 시간'의 가치를 연결하는 차별화된 비즈니스 모델 수립",
+        "AI 가격 추천, 실시간 채팅 등 핵심 기능의 UX/정책 상세 기획"
       ],
       link: "https://github.com/HazyResearch/ThunderKittens"
     },
     {
-      title: "ELF32 Dynamic Linker for Raspberry Pi",
-      description: "개인 프로젝트",
-      type: "개인 프로젝트", 
-      period: "2025 - 2025",
-      details: [
-        "베어메탈 환경에서 동적 링커 실행 실험",
-        "공유 라이브러리 포팅 연구",
-        "스탠포드 대학교 강의/실습 자료로 활용 (CS 240LX: ELF and Dynamic Linker)"
-      ],
-      link: "https://web.stanford.edu/class/cs240lx/"
-    },
-    {
-      title: "Co-Chuck",
-      description: "개인 프로젝트",
+      title: "MoCheck - 모바일 친화도 체커",
+      description: "PM과 비개발자를 위한 웹 성능 분석 도구",
       type: "개인 프로젝트",
-      period: "2024 - 2024", 
+      period: "2024.06 - 2024.08", 
       details: [
-        "온라인 협업 음악 코딩 플랫폼"
+        "Google PageSpeed Insights API와 Lighthouse 엔진을 활용하여 정확한 데이터 제공",
+        "복잡한 성능 지표를 비개발자도 쉽게 이해할 수 있도록 시각적으로 재구성",
+        "기획자/마케터의 관점에서 필요한 핵심 정보 위주로 대시보드 설계",
       ],
-      link: "https://github.com/example/co-chuck"
+      link: "https://mocheck.netlify.app/"
     },
     {
-      title: "SampvoNet",
-      description: "대학교 팀 프로젝트",
-      type: "대학 프로젝트",
-      period: "2020 - 2020",
+      title: "SecureNote - GPS 메타데이터 제거 도구",
+      description: "개인정보 보호를 위한 이미지 일괄 처리 웹앱",
+      type: "개인 프로젝트", 
+      period: "2025.07 - 2025.09",
       details: [
-        "TensorFlow 기반 딥러닝 모델 개발",
-        "React.js 기반 모바일 애플리케이션 구현",
-        "콘크리트 제조 공정의 자동화된 품질 평가 시스템"
+        "이미지 속 GPS 메타데이터를 감지하고 제거하여 사용자 개인정보 보호 기능 구현",
+        "웹 워커(Web Worker) 기술을 활용하여 대용량 파일의 빠른 백그라운드 처리 시스템 설계",
+        "다수의 이미지를 동시에 처리하고 ZIP으로 다운로드하는 일괄 처리 기능 개발"
+      ],
+      link: "https://securegps.netlify.app/"
+    },
+    {
+      title: "TimeSync - 글로벌 팀을 위한 시차 변환 미팅 조율기",
+      description: "다국적 팀원들의 시간대를 자동으로 변환하여 최적의 회의 시간을 찾아주는 웹앱",
+      type: "개인 프로젝트",
+      period: "2024.05 - 2024.08", 
+      details: [
+        "글로벌 분산 팀(Distributed Team)의 고질적인 문제인 '시차 계산'의 비효율을 해결",
+        "사용자가 자신의 '현지 시간' 기준으로 가능 시간을 입력하면, 다른 모든 팀원에게는 자동으로 변환되어 보이는 UI/UX 설계",
+        "모든 팀원의 응답을 종합하여, 모두에게 가장 합리적인 '골든 타임'을 찾아 시각적으로 추천하는 기능 구현",
+      ],
+      link: "https://globalmeetingtime.netlify.app/"
+    },
+    {
+      title: "개인 프로젝트 (20개 이상)",
+      description: "아이디어의 신속한 프로토타이핑 및 기술 검증",
+      type: "개인 프로젝트",
+      period: "2023 - Present",
+      details: [
+        "AI 개발 툴(Replit, V0 등)을 활용하여 아이디어를 빠르게 실제 작동하는 웹앱으로 구현",
+        "주요 성과: 한달 내 1000회 이상 노출",
+        "단어 유사도 게임, GPS 데이터 제거 툴 등 다양한 기술 스택을 실험하며 '만드는 기획자'로서의 역량 강화",
+      ]
+    },
+    {
+      title: "데일리스냅 (DailySnap)",
+      description: "소셜 사진 챌린지 앱 서비스 기획",
+      type: "사이드 프로젝트",
+      period: "2025.01 - 2025.09",
+      details: [
+        "매일 새로운 키워드에 맞는 사진을 공유하는 소셜 챌린지 앱 서비스 기획",
+        "사용자 리텐션을 높이기 위한 게이미피케이션(Gamification) 전략 및 보상 시스템 설계",
+        "프로젝트 관리 및 주간 기획 회의를 직접 주도하며 초기 기획,개발 리딩",
+        "주요 팀원 이탈로 프로젝트는 중단되었으나, 초기 서비스 기획 및 스토리보드 제작 경험 습득"
       ],
       link: "https://github.com/example/sampvonet"
     },
     {
-      title: "MERCI",
-      description: "오픈 소스 연구 프로젝트",
-      type: "연구 프로젝트",
-      period: "2020 - 2020",
+      title: "교내 교량 경진 대회",
+      description: "[세종대학교] 주관 교량 경진대회 대상 수상",
+      type: "교내 프로젝트",
+      period: "2025",
       details: [
-        "딥러닝 추천 모델을 위한 고속 임베딩 축소 알고리즘",
-        "대규모 임베딩 테이블을 가진 시스템 최적화"
-      ],
-      link: "https://github.com/example/merci"
-    },
-    {
-      title: "LLVM 컴파일러 최적화",
-      description: "대학교 팀 프로젝트",
-      type: "대학 프로젝트",
-      period: "2020 - 2020",
-      details: [
-        "서울대학교 LLVM 최적화 경쟁에서 13팀 중 2위 달성"
+        "실시간 하중 예측을 통해 교량의 안정성을 높이는 모델을 제안하여 대상 수상",
+        "전공(건설환경공학) 지식과 AI 기술을 융합하여 문제를 해결하는 능력 증명"
       ]
-    },
-    {
-      title: "Homemade Neural Network",
-      description: "개인 프로젝트",
-      type: "개인 프로젝트",
-      period: "2020 - 2020",
-      details: [
-        "순수 Python으로 작성된 딥러닝 프레임워크 (NumPy 미사용)"
-      ],
-      link: "https://github.com/example/homemade-nn"
-    },
-    {
-      title: "Five-in-a-row with AI",
-      description: "개인 프로젝트",
-      type: "개인 프로젝트",
-      period: "2019 - 2019",
-      details: [
-        "GUI와 AI 상대가 포함된 오목 게임",
-        "Python으로 구현된 GUI 및 AI 시스템",
-        "미니맥스 알고리즘 기반 AI 구현"
-      ],
-      link: "https://github.com/example/five-in-a-row"
     }
   ],
   tools: [
     {
-      title: "이미지 편집기",
-      description: "빠르게 이미지를 자르고 크기를 조정할 수 있는 도구",
-      link: "https://example.com/crop-resize"
+      title: "개발 툴 모음 (DevTools Collection)",
+      description: "개발 및 기획 과정에서 자주 사용하는 인코더/디코더, 포맷터 등을 모아놓은 온라인 유틸리티",
+      link: "https://developertoolss.netlify.app/"
     },
     {
-      title: "인터벌 타이머", 
-      description: "작업 중 눈의 피로를 줄이기 위한 타이머",
-      link: "https://example.com/interval-timer"
+      title: "로또 번호 분석 및 시뮬레이터 (Lotto Simulator)", 
+      description: "데이터를 기반으로 통계를 분석하고, 특정 로직에 따른 번호 생성을 시뮬레이션하는 도구",
+      link: "https://lotto33.netlify.app/"
     },
     {
-      title: "시간 변환기",
-      description: "Unix 타임스탬프를 쉽게 변환",
-      link: "https://example.com/epoch-converter"
+      title: "단축키 모음집 (Shortcut Cheatsheet)",
+      description: "Figma, Notion 등 생산성 툴의 단축키를 검색하고 빠르게 확인할 수 있는 인터랙티브 웹페이지",
+      link: "https://shortscut.netlify.app/"
     },
     {
-      title: "랜덤 선택기",
-      description: "무작위로 선택할 수 있는 휠 도구",
-      link: "https://example.com/spin-wheel"
+      title: "룬 문자 변환기 (Rune Converter)",
+      description: "입력한 알파벳을 고대 룬 문자로 변환해 주는 엔터테인먼트 도구",
+      link: "https://viking-rune-converter.netlify.app/"
     },
     {
-      title: "메트로놈",
-      description: "음악 연습을 위한 메트로놈",
-      link: "https://example.com/metronome"
+      title: "오늘의 예언 (Daily Oracle)",
+      description: "하루에 한 번, 랜덤으로 생성된 짧은 예언이나 격언을 보여주는 웹 서비스",
+      link: "https://prophecy123.netlify.app/"
+    },
+    {
+      title: "SEO 프리뷰 툴 (SEO Preview Tool)",
+      description: "웹페이지의 제목과 설명을 입력하면, 구글 검색 결과에 어떻게 보일지 미리 시뮬레이션해주는 도구",
+      link: "https://seopreview.netlify.app/"
     }
   ]
 };

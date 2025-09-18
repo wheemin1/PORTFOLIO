@@ -13,15 +13,15 @@ export default function ExperienceSection() {
       <section id="experience" className="py-16">
         <div className="container max-w-4xl mx-auto px-4">
           <SectionHeader title="Experience" />
-          <div className="space-y-12">
+          <div className="space-y-12 max-w-4xl mx-auto">
             {[1, 2, 3].map((index) => (
-              <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className="md:text-right space-y-1">
+              <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div className="md:col-span-3 md:text-right space-y-1">
                   <div className="h-4 bg-muted rounded animate-pulse" />
                   <div className="h-8 bg-muted rounded animate-pulse" />
                   <div className="h-4 bg-muted rounded animate-pulse" />
                 </div>
-                <div className="md:col-span-3 space-y-4">
+                <div className="md:col-span-8 md:col-start-4 space-y-4">
                   <div className="h-6 bg-muted rounded animate-pulse" />
                   <div className="h-4 bg-muted rounded animate-pulse" />
                   <div className="space-y-2">
@@ -42,10 +42,10 @@ export default function ExperienceSection() {
       <div className="container max-w-4xl mx-auto px-4">
         <SectionHeader title="Experience" />
         
-        <div className="space-y-12">
+        <div className="space-y-12 max-w-4xl mx-auto">
           {experience.map((exp, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="md:text-right space-y-1">
+            <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6">
+              <div className="md:col-span-3 md:text-right space-y-1">
                 <div className="text-sm text-muted-foreground">
                   {exp.period.split(' - ')[0]}
                 </div>
@@ -57,7 +57,7 @@ export default function ExperienceSection() {
                 </div>
               </div>
               
-              <div className="md:col-span-3 space-y-4">
+              <div className="md:col-span-8 md:col-start-4 space-y-4">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="flex items-center gap-2">

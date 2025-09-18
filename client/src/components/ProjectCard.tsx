@@ -23,7 +23,7 @@ export default function ProjectCard({ title, description, type, period, details,
 
   return (
     <Card 
-      className={`transition-all duration-200 ${link ? 'hover-elevate cursor-pointer' : ''}`}
+      className={`transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 ${link ? 'cursor-pointer' : ''}`}
       onClick={handleClick}
       data-testid={`card-project-${title.replace(/\s+/g, '-').toLowerCase()}`}
     >
