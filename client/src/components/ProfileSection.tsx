@@ -1,15 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
+import { defaultPortfolioData } from "@shared/portfolio-data";
 import type { PersonalInfo } from "@shared/portfolio-data";
 
 export default function ProfileSection() {
-  const { data: personalInfo, isLoading } = useQuery<PersonalInfo>({
-    queryKey: ['/api/portfolio/personal']
-  });
+  const personalInfo = defaultPortfolioData.personalInfo;
 
-  if (isLoading || !personalInfo) {
+  if (!personalInfo) {
     return (
       <section id="profile" className="py-16 lg:py-20">
         <div className="container max-w-4xl mx-auto px-4">

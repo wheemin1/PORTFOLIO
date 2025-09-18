@@ -1,14 +1,12 @@
 import SectionHeader from "./SectionHeader";
 import ToolCard from "./ToolCard";
-import { useQuery } from "@tanstack/react-query";
+import { defaultPortfolioData } from "@shared/portfolio-data";
 import type { Tool } from "@shared/portfolio-data";
 
 export default function ToolsSection() {
-  const { data: tools, isLoading } = useQuery<Tool[]>({
-    queryKey: ['/api/portfolio/tools']
-  });
+  const tools = defaultPortfolioData.tools;
 
-  if (isLoading || !tools) {
+  if (!tools) {
     return (
       <section id="tools" className="py-16">
         <div className="container max-w-4xl mx-auto px-4">

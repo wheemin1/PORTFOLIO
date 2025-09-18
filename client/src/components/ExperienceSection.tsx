@@ -1,14 +1,12 @@
 import SectionHeader from "./SectionHeader";
 import { ExternalLink } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
+import { defaultPortfolioData } from "@shared/portfolio-data";
 import type { Experience } from "@shared/portfolio-data";
 
 export default function ExperienceSection() {
-  const { data: experience, isLoading } = useQuery<Experience[]>({
-    queryKey: ['/api/portfolio/experience']
-  });
+  const experience = defaultPortfolioData.experience;
 
-  if (isLoading || !experience) {
+  if (!experience) {
     return (
       <section id="experience" className="py-16">
         <div className="container max-w-4xl mx-auto px-4">

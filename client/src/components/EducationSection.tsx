@@ -1,13 +1,11 @@
 import SectionHeader from "./SectionHeader";
-import { useQuery } from "@tanstack/react-query";
+import { defaultPortfolioData } from "@shared/portfolio-data";
 import type { Education } from "@shared/portfolio-data";
 
 export default function EducationSection() {
-  const { data: education, isLoading } = useQuery<Education[]>({
-    queryKey: ['/api/portfolio/education']
-  });
+  const education = defaultPortfolioData.education;
 
-  if (isLoading || !education) {
+  if (!education) {
     return (
       <section id="education" className="py-16">
         <div className="container max-w-4xl mx-auto px-4">

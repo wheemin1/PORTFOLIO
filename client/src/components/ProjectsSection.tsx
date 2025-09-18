@@ -1,14 +1,12 @@
 import SectionHeader from "./SectionHeader";
 import ProjectCard from "./ProjectCard";
-import { useQuery } from "@tanstack/react-query";
+import { defaultPortfolioData } from "@shared/portfolio-data";
 import type { Project } from "@shared/portfolio-data";
 
 export default function ProjectsSection() {
-  const { data: projects, isLoading } = useQuery<Project[]>({
-    queryKey: ['/api/portfolio/projects']
-  });
+  const projects = defaultPortfolioData.projects;
 
-  if (isLoading || !projects) {
+  if (!projects) {
     return (
       <section id="projects" className="py-16">
         <div className="container max-w-4xl mx-auto px-4">
