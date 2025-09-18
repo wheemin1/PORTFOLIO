@@ -134,7 +134,7 @@ export const defaultPortfolioData: PortfolioData = {
         "물건, 재능, 시간'의 가치를 연결하는 차별화된 비즈니스 모델 수립",
         "AI 가격 추천, 실시간 채팅 등 핵심 기능의 UX/정책 상세 기획"
       ],
-      link: "https://github.com/HazyResearch/ThunderKittens"
+      link: "https://github.com/TEAM-ROMROM"
     },
     {
       title: "MoCheck - 모바일 친화도 체커",
@@ -194,7 +194,7 @@ export const defaultPortfolioData: PortfolioData = {
         "프로젝트 관리 및 주간 기획 회의를 직접 주도하며 초기 기획,개발 리딩",
         "주요 팀원 이탈로 프로젝트는 중단되었으나, 초기 서비스 기획 및 스토리보드 제작 경험 습득"
       ],
-      link: "https://github.com/example/sampvonet"
+      link: "https://github.com/Team-DailySnap"
     },
     {
       title: "교내 교량 경진 대회",
