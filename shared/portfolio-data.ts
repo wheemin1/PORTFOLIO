@@ -56,7 +56,7 @@ export const defaultPortfolioData: PortfolioData = {
   personalInfo: {
     name: "조휘민",
     location: "Seoul, KR",
-    email: "jowheemin@gmail.com",
+    email: "jowheemin@gmail.cofm",
     bio: "안녕하세요! 아이디어를 현실로 만드는 메이커형 AI 서비스 기획자, 조휘민입니다.\n\n새로운 기술을 탐구하고 시스템을 최적화하며 팀을 구축하는 것을 좋아합니다. 처음부터 새로운 도전을 다루는 느낌을 정말 좋아합니다.\n\n혁신적인 솔루션을 통해 사용자 경험을 개선하고 비즈니스 성장에 기여하는 개발자가 되기 위해 노력하고 있습니다.",
     linkedinUrl: "",
     githubUrl: "https://github.com/wheemin1"
@@ -194,7 +194,7 @@ export const defaultPortfolioData: PortfolioData = {
         "프로젝트 관리 및 주간 기획 회의를 직접 주도하며 초기 기획,개발 리딩",
         "주요 팀원 이탈로 프로젝트는 중단되었으나, 초기 서비스 기획 및 스토리보드 제작 경험 습득"
       ],
-      link: "https://github.com/Team-DailySnap"
+      link: "https://www.notion.so/Daily-Snap-273e58d97ee080b98a0ee45e5ea9325b?source=copy_link"
     },
     {
       title: "교내 교량 경진 대회",
