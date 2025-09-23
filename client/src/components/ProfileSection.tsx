@@ -27,7 +27,11 @@ export default function ProfileSection() {
       <div className="container max-w-4xl mx-auto px-4">
         <div className="text-center space-y-8">
           <Avatar className="w-32 h-32 mx-auto">
-            <AvatarImage src={personalInfo.profileImage} alt={personalInfo.name} />
+            <AvatarImage 
+              src={personalInfo.profileImage} 
+              alt={personalInfo.name}
+              className="object-cover object-center"
+            />
             <AvatarFallback className="text-2xl font-semibold">
               {personalInfo.name.split('').slice(0, 2).join('')}
             </AvatarFallback>
