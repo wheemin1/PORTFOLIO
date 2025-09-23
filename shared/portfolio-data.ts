@@ -59,7 +59,8 @@ export const defaultPortfolioData: PortfolioData = {
     email: "jowheemin@gmail.com",
     bio: "안녕하세요! 아이디어를 현실로 만드는 메이커형 AI 서비스 기획자, 조휘민입니다.\n\n새로운 기술을 탐구하고 시스템을 최적화하며 팀을 구축하는 것을 좋아합니다. 처음부터 새로운 도전을 다루는 느낌을 정말 좋아합니다.\n\n혁신적인 솔루션을 통해 사용자 경험을 개선하고 비즈니스 성장에 기여하는 개발자가 되기 위해 노력하고 있습니다.",
     linkedinUrl: "",
-    githubUrl: "https://github.com/wheemin1"
+    githubUrl: "https://github.com/wheemin1",
+    profileImage: "/profile-photo.jpg"
   },
   education: [
     {
