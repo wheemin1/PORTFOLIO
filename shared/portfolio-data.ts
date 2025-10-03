@@ -141,7 +141,7 @@ export const defaultPortfolioData: PortfolioData = {
       title: "MoCheck - 모바일 친화도 체커",
       description: "PM과 비개발자를 위한 웹 성능 분석 도구",
       type: "개인 프로젝트",
-      period: "2024.06 - 2024.08", 
+      period: "2025.06 - 2025.08", 
       details: [
         "Google PageSpeed Insights API와 Lighthouse 엔진을 활용하여 정확한 데이터 제공",
         "복잡한 성능 지표를 비개발자도 쉽게 이해할 수 있도록 시각적으로 재구성",
@@ -165,7 +165,7 @@ export const defaultPortfolioData: PortfolioData = {
       title: "TimeSync - 글로벌 팀을 위한 시차 변환 미팅 조율기",
       description: "다국적 팀원들의 시간대를 자동으로 변환하여 최적의 회의 시간을 찾아주는 웹앱",
       type: "개인 프로젝트",
-      period: "2024.05 - 2024.08", 
+      period: "2025.05 - 2025.08", 
       details: [
         "글로벌 분산 팀(Distributed Team)의 고질적인 문제인 '시차 계산'의 비효율을 해결",
         "사용자가 자신의 '현지 시간' 기준으로 가능 시간을 입력하면, 다른 모든 팀원에게는 자동으로 변환되어 보이는 UI/UX 설계",
@@ -185,6 +185,18 @@ export const defaultPortfolioData: PortfolioData = {
       ]
     },
     {
+      title: "AI 전공과목 학습 퀴즈 웹",
+      description: "수강생들의 학습 비효율 문제를 해결하기 위해 제작한 인터랙티브 퀴즈 서비스",
+      type: "개인 프로젝트",
+      period: "2025.03 - 2025.05",
+      details: [
+        "전공 수업의 비효율적인 학습 문제(답 없는 100개 문제)를 발견하고 해결을 주도",
+        "AI 개발 툴을 활용, 정답/오답 확인 기능이 포함된 퀴즈 웹을 1일 만에 신속하게 개발 및 배포",
+        "수강생 전원에게 배포하여 큰 호응을 얻고, 사용자 니즈 해결의 가치를 증명",
+      ],
+      link: "https://minmim.netlify.app/"
+    },
+    {
       title: "데일리스냅 (DailySnap)",
       description: "소셜 사진 챌린지 앱 서비스 기획",
       type: "사이드 프로젝트",
@@ -201,7 +213,7 @@ export const defaultPortfolioData: PortfolioData = {
       title: "교내 교량 경진 대회",
       description: "[세종대학교] 주관 교량 경진대회 대상 수상",
       type: "교내 프로젝트",
-      period: "2025",
+      period: "2024",
       details: [
         "실시간 하중 예측을 통해 교량의 안정성을 높이는 모델을 제안하여 대상 수상",
         "전공(건설환경공학) 지식과 AI 기술을 융합하여 문제를 해결하는 능력 증명"
