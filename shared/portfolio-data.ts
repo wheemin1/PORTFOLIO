@@ -114,6 +114,19 @@ export const defaultPortfolioData: PortfolioData = {
   ],
   projects: [
     {
+      title: "코드 배틀 (Codebattle)",
+      description: "AI 기반 실시간 코드 배틀 게임 플랫폼",
+      type: "AI 서비스 기획/개발 개인 프로젝트",
+      period: "2025.10 - Present",
+      details: [
+        "서비스 기획, 개발, 운영 총괄",
+        "서비스 출시 3일만에 가입자 150명 돌파",
+        "Elo 레이팅 시스템, 시즌제, 캐릭터 관리 등 핵심 게임 메커니즘 설계",
+        "AI가 유저 코드를 분석/평가하는 배틀 로직 기획 및 구현"
+      ],
+      link: "https://codebattle.site/"
+    },
+    {
       title: "롬롬 (RomRom)",
       description: "AI 기반 차세대 가치 교환 플랫폼",
       type: "AI 서비스 기획/개발 총괄 프로젝트",
