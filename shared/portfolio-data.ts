@@ -75,18 +75,6 @@ export const defaultPortfolioData: PortfolioData = {
   ],
   experience: [
     {
-      company: "앤드트레이딩 (ANDTRADING)",
-      position: "설립자 (Founder) / 대표",
-      location: "Gangdong, KR",
-      period: "2025 - Present",
-      type: "개인 창업 (Sole Proprietorship)",
-      responsibilities: [
-        "식품 무역업으로 개인 창업을 통해 아이디어를 실제 비즈니스로 구현",
-        "해외(호주) 파트너십 구축 및 시장 조사를 통해 사업 계획 수립",
-        "시장 조사, 사업 계획 수립부터 정식 사업자 등록까지 직접 완료",
-      ],
-    },
-    {
       company: "롬롬 (ROMROM)",
       position: "서비스 기획 총괄 / Product Manager",
       location: "Seoul, KR",
@@ -193,8 +181,7 @@ export const defaultPortfolioData: PortfolioData = {
         "전공 수업의 비효율적인 학습 문제(답 없는 100개 문제)를 발견하고 해결을 주도",
         "AI 개발 툴을 활용, 정답/오답 확인 기능이 포함된 퀴즈 웹을 1일 만에 신속하게 개발 및 배포",
         "수강생 전원에게 배포하여 큰 호응을 얻고, 사용자 니즈 해결의 가치를 증명",
-      ],
-      link: "https://minmim.netlify.app/"
+      ]
     },
     {
       title: "데일리스냅 (DailySnap)",
