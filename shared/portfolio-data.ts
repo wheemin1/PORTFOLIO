@@ -75,19 +75,6 @@ export const defaultPortfolioData: PortfolioData = {
   ],
   experience: [
     {
-      company: "롬롬 (ROMROM)",
-      position: "서비스 기획 총괄 / Product Manager",
-      location: "Seoul, KR",
-      period: "2024.09 - Present", 
-      type: "사이드 프로젝트",
-      responsibilities: [
-        "'물물교환'의 본질적 문제를 AI로 해결하고자 하는 목표로 45개 스크린 규모의 MVP 서비스 기획",
-        "Figma를 활용하여 전체 UI/UX 와이어프레임 및 프로토타입 설계 주도",
-        "API 명세 정의 및 실시간 채팅 아키텍처(RabbitMQ) 도입 제안 등 개발 협업",
-        "프로젝트 로드맵을 수립하고 매주 정기 회의를 주관하며 팀 리딩",
-      ],
-    },
-    {
       company: "데일리스냅 (DailySnap)",
       position: "서비스 기획 / Product Manager",
       location: "Seoul, KR",
@@ -116,32 +103,33 @@ export const defaultPortfolioData: PortfolioData = {
     {
       title: "코드 배틀 (Codebattle)",
       description: "AI 기반 실시간 코드 배틀 게임 플랫폼",
-      type: "AI 서비스 기획/개발 개인 프로젝트",
+      type: "Hero Project",
       period: "2025.10 - Present",
       details: [
-        "서비스 기획, 개발, 운영 총괄",
-        "서비스 출시 3일만에 가입자 150명 돌파",
-        "Elo 레이팅 시스템, 시즌제, 캐릭터 관리 등 핵심 게임 메커니즘 설계",
-        "AI가 유저 코드를 분석/평가하는 배틀 로직 기획 및 구현"
+        "[유저 150명 유치 및 BM 분석을 통한 피벗 경험]",
+        "Problem: 1인 개발로 런칭해 3일 만에 150명을 모았으나, 유저 활동에 비례해 AI 토큰 비용이 급증하는 구조적 문제 발견",
+        "Action: 실시간 배틀 로직 구현 및 Elo 랭킹 시스템 운영. 이후 지속 가능성을 위해 서비스를 잠정 중단하고 수익 모델(BM)을 재설계하는 전략적 의사결정 수행",
+        "Role: 기획, 디자인, 풀스택 개발, 운영 총괄"
       ],
       link: "https://codebattle.site/"
     },
     {
       title: "롬롬 (RomRom)",
       description: "AI 기반 차세대 가치 교환 플랫폼",
-      type: "AI 서비스 기획/개발 총괄 프로젝트",
+      type: "Hero Project",
       period: "2024.09 - Present",
       details: [
-        "45개 스크린 규모의 MVP 서비스 기획 및 전체 프로덕트 로드맵 설계",
-        "물건, 재능, 시간'의 가치를 연결하는 차별화된 비즈니스 모델 수립",
-        "AI 가격 추천, 실시간 채팅 등 핵심 기능의 UX/정책 상세 기획"
+        "[45개 스크린 규모의 MVP 런칭 및 협업 리딩]",
+        "Problem: 물물교환 시장의 낮은 신뢰도와 가치 산정의 어려움 해결 필요",
+        "Solution: AI 가격 추천 모델 및 실시간 채팅 아키텍처(RabbitMQ) 도입 제안. 45장 분량의 상세 기능 명세서(PRD) 작성",
+        "Outcome: 구글 플레이스토어 내부 테스트 진입 (2025년 1월 런칭 예정). 매주 정기 회의를 주관하며 팀 리딩 및 프로젝트 로드맵 관리"
       ],
       link: "https://github.com/TEAM-ROMROM"
     },
     {
       title: "MoCheck - 모바일 친화도 체커",
       description: "PM과 비개발자를 위한 웹 성능 분석 도구",
-      type: "개인 프로젝트",
+      type: "Side Project",
       period: "2025.06 - 2025.08", 
       details: [
         "Google PageSpeed Insights API와 Lighthouse 엔진을 활용하여 정확한 데이터 제공",
@@ -153,7 +141,7 @@ export const defaultPortfolioData: PortfolioData = {
     {
       title: "SecureNote - GPS 메타데이터 제거 도구",
       description: "개인정보 보호를 위한 이미지 일괄 처리 웹앱",
-      type: "개인 프로젝트", 
+      type: "Side Project", 
       period: "2025.07 - 2025.09",
       details: [
         "이미지 속 GPS 메타데이터를 감지하고 제거하여 사용자 개인정보 보호 기능 구현",
@@ -165,7 +153,7 @@ export const defaultPortfolioData: PortfolioData = {
     {
       title: "TimeSync - 글로벌 팀을 위한 시차 변환 미팅 조율기",
       description: "다국적 팀원들의 시간대를 자동으로 변환하여 최적의 회의 시간을 찾아주는 웹앱",
-      type: "개인 프로젝트",
+      type: "Side Project",
       period: "2025.05 - 2025.08", 
       details: [
         "글로벌 분산 팀(Distributed Team)의 고질적인 문제인 '시차 계산'의 비효율을 해결",
@@ -177,7 +165,7 @@ export const defaultPortfolioData: PortfolioData = {
     {
       title: "개인 프로젝트 (20개 이상)",
       description: "아이디어의 신속한 프로토타이핑 및 기술 검증",
-      type: "개인 프로젝트",
+      type: "Side Project",
       period: "2023 - Present",
       details: [
         "AI 개발 툴(Replit, V0 등)을 활용하여 아이디어를 빠르게 실제 작동하는 웹앱으로 구현",
@@ -187,32 +175,20 @@ export const defaultPortfolioData: PortfolioData = {
     },
     {
       title: "AI 전공과목 학습 퀴즈 웹",
-      description: "수강생들의 학습 비효율 문제를 해결하기 위해 제작한 인터랙티브 퀴즈 서비스",
-      type: "개인 프로젝트",
+      description: "전공 수업의 비효율을 24시간 만에 기술로 해결",
+      type: "Hero Project",
       period: "2025.03 - 2025.05",
       details: [
-        "전공 수업의 비효율적인 학습 문제(답 없는 100개 문제)를 발견하고 해결을 주도",
-        "AI 개발 툴을 활용, 정답/오답 확인 기능이 포함된 퀴즈 웹을 1일 만에 신속하게 개발 및 배포",
-        "수강생 전원에게 배포하여 큰 호응을 얻고, 사용자 니즈 해결의 가치를 증명",
+        "[전공 수업의 비효율을 24시간 만에 기술로 해결]",
+        "Pain Point: 전공 수업 100문제의 답안이 없어 학우들의 학습 효율이 떨어지는 문제 발견",
+        "Action: AI 툴을 활용해 하루 만에 정답 확인이 가능한 인터랙티브 퀴즈 웹 개발 및 배포",
+        "Result: 수강생 전원이 시험 기간 동안 '공식 학습 도구'로 활용하며 기술의 실질적 가치 증명"
       ]
-    },
-    {
-      title: "데일리스냅 (DailySnap)",
-      description: "소셜 사진 챌린지 앱 서비스 기획",
-      type: "사이드 프로젝트",
-      period: "2025.01 - 2025.09",
-      details: [
-        "매일 새로운 키워드에 맞는 사진을 공유하는 소셜 챌린지 앱 서비스 기획",
-        "사용자 리텐션을 높이기 위한 게이미피케이션(Gamification) 전략 및 보상 시스템 설계",
-        "프로젝트 관리 및 주간 기획 회의를 직접 주도하며 초기 기획,개발 리딩",
-        "주요 팀원 이탈로 프로젝트는 중단되었으나, 초기 서비스 기획 및 스토리보드 제작 경험 습득"
-      ],
-      link: "https://www.notion.so/Daily-Snap-273e58d97ee080b98a0ee45e5ea9325b?source=copy_link"
     },
     {
       title: "교내 교량 경진 대회",
       description: "[세종대학교] 주관 교량 경진대회 대상 수상",
-      type: "교내 프로젝트",
+      type: "Side Project",
       period: "2024",
       details: [
         "실시간 하중 예측을 통해 교량의 안정성을 높이는 모델을 제안하여 대상 수상",
