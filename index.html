@@ -112,9 +112,9 @@
         const { useState, useEffect, useRef } = React;
 
         const data = {
-            name: "Hweemin Cho",
-            role: "Product Manager",
-            bio: "데이터로 문제를 정의하고 기술로 솔루션을 검증합니다.\n건설환경공학적 시스템 사고와 실행력을 갖춘 기획자입니다.",
+            name: "조휘민 Hweemin Cho",
+            role: "프로덕트 매니저",
+            bio: "데이터로 문제를 정의하고, 기술로 솔루션을 검증합니다.\n아이디어를 실제 서비스로 구현하는 메이커형 기획자입니다.",
             contact: {
                 email: "jowheemin@gmail.com",
                 github: "https://github.com/wheemin1",
@@ -145,39 +145,33 @@
             ],
             projects: [
                 {
-                    category: "B2C AI Service",
-                    title: "Code Battle",
-                    stats: { label: "Result", value: "Cost -40%" },
-                    context: "AI가 생성한 코딩 문제를 실시간으로 대결하는 게임 플랫폼",
-                    actions: [
-                        "초기 유저 150명 유입 후, AI API 호출 비용 급증으로 인한 <span class='highlight'>수익성 악화 문제</span> 발견",
-                        "로그 데이터 분석을 통해 '학습'보다 '경쟁' 요소에 유저 반응이 높음을 확인",
-                        "BM을 '구독형'에서 '건별 결제'로 전환하는 <span class='highlight'>Pivot 전략</span> 수립 및 실행"
-                    ],
+                    category: "AI 서비스",
+                    title: "AI 비용 40% 절감한 BM 피벗",
+                    subtitle: "Code Battle",
+                    stats: { label: "성과", value: "비용 -40%" },
+                    problem: "출시 3일만에 유저 150명 유입 성공. 하지만 AI API 호출 비용이 급증하며 수익성 악화 위기",
+                    approach: "유저 로그 분석 결과, '학습'보다 '경쟁' 요소에 높은 반응 확인. <span class='highlight'>구독형 → 건별 결제 모델</span>로 피벗 전략 수립",
+                    result: "API 호출 최적화 및 BM 전환으로 <span class='highlight'>운영 비용 40% 절감</span>. 지속 가능한 서비스 구조 확립",
                     link: "https://codebattle.site/"
                 },
                 {
-                    category: "O2O Platform",
-                    title: "RomRom",
-                    stats: { label: "Scale", value: "45 Screens" },
-                    context: "위치 기반의 신뢰 중심 물물교환 중개 플랫폼",
-                    actions: [
-                        "물물교환의 고질적 문제인 '가치 산정' 해결을 위해 <span class='highlight'>AI 가격 추천 모델</span> 기획",
-                        "45개 화면의 상세 PRD 작성 및 디자이너 1명, 개발자 4명과의 협업 리딩",
-                        "실시간 채팅을 위한 RabbitMQ 도입 의사결정 및 기술 타당성 검토 참여"
-                    ],
+                    category: "O2O 플랫폼",
+                    title: "45개 화면 MVP 설계 및 협업 리딩",
+                    subtitle: "RomRom",
+                    stats: { label: "규모", value: "45개 화면" },
+                    problem: "물물교환 시장의 고질적 문제: 신뢰도 부족 + 가치 산정의 어려움",
+                    approach: "<span class='highlight'>AI 가격 추천 모델</span> 도입 기획. 45개 화면의 상세 PRD 작성 및 디자이너 1명, 개발자 4명과 협업 리딩",
+                    result: "실시간 채팅(RabbitMQ) 아키텍처 도입. 현재 <span class='highlight'>구글 플레이스토어 내부 테스트</span> 진행 중 (1월 런칭 예정)",
                     link: "https://github.com/TEAM-ROMROM"
                 },
                 {
-                    category: "EdTech Web",
-                    title: "Univ Quiz Web",
-                    stats: { label: "Speed", value: "24 Hours" },
-                    context: "전공 시험 기간 학습 효율을 높이기 위한 퀴즈 웹 서비스",
-                    actions: [
-                        "시험 기간 '정답지가 없어 공부가 어렵다'는 학우들의 <span class='highlight'>Pain Point</span> 포착",
-                        "복잡한 기능 없이 '퀴즈 풀기'와 '정답 확인'에만 집중한 <span class='highlight'>MVP</span>를 24시간 만에 개발 및 배포",
-                        "학과 단톡방 바이럴을 통해 수강생 90% 이상이 사용하는 공식 학습 도구로 정착"
-                    ],
+                    category: "EdTech",
+                    title: "24시간 만에 90% 사용률 달성",
+                    subtitle: "전공 퀴즈 웹",
+                    stats: { label: "속도", value: "24시간" },
+                    problem: "시험 기간, 100문제 정답지가 없어 학우들의 학습 효율 저하",
+                    approach: "복잡한 기능 배제. '퀴즈 풀기 + 정답 확인'만 집중한 <span class='highlight'>초경량 MVP</span>를 24시간 만에 개발·배포",
+                    result: "학과 단톡방 바이럴로 <span class='highlight'>수강생 90% 이상</span>이 사용. 실질적 문제 해결 능력 증명",
                     link: "#"
                 }
             ],
@@ -383,8 +377,61 @@
 
                         <Divider />
 
+                        {/* 주요 프로젝트 - 맨 위로 */}
                         <section className="flex flex-col md:flex-row">
-                            <SectionLabel>Experience</SectionLabel>
+                            <SectionLabel>주요 프로젝트</SectionLabel>
+                            <div className="flex-1 space-y-16">
+                                {data.projects.map((proj, i) => (
+                                    <Reveal key={i} delay={i * 100}>
+                                        <a href={proj.link} target="_blank" className="block group">
+                                            <div className="flex items-center justify-between mb-3">
+                                                <div className="flex items-center gap-3">
+                                                    <span className="text-xs font-bold px-2 py-0.5 rounded border border-light-muted/30 dark:border-dark-muted/30 text-light-muted dark:text-dark-muted">
+                                                        {proj.category}
+                                                    </span>
+                                                </div>
+                                                {proj.stats && (
+                                                    <div className="text-right">
+                                                        <div className="text-xl font-bold font-mono text-light-accent dark:text-dark-accent">
+                                                            {proj.stats.value}
+                                                        </div>
+                                                        <div className="text-[10px] text-light-muted dark:text-dark-muted uppercase tracking-wider">
+                                                            {proj.stats.label}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            <h3 className="font-bold text-2xl mb-1 group-hover:text-light-accent dark:group-hover:text-dark-accent transition-colors">
+                                                {proj.title}
+                                            </h3>
+                                            <p className="text-sm text-light-muted dark:text-dark-muted mb-4">{proj.subtitle}</p>
+
+                                            <div className="space-y-3">
+                                                <div>
+                                                    <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">🚨 문제</span>
+                                                    <p className="text-gray-800 dark:text-gray-200 mt-1 leading-relaxed">{proj.problem}</p>
+                                                </div>
+                                                <div>
+                                                    <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">♟️ 접근</span>
+                                                    <p className="text-gray-600 dark:text-gray-400 mt-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: proj.approach }}></p>
+                                                </div>
+                                                <div>
+                                                    <span className="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-wider">📈 성과</span>
+                                                    <p className="text-gray-600 dark:text-gray-400 mt-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: proj.result }}></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </Reveal>
+                                ))}
+                            </div>
+                        </section>
+
+                        <Divider />
+
+                        {/* 경력 */}
+                        <section className="flex flex-col md:flex-row">
+                            <SectionLabel>경력</SectionLabel>
                             <div className="flex-1 space-y-12">
                                 {data.experience.map((exp, i) => (
                                     <Reveal key={i} delay={i * 100}>
@@ -412,53 +459,7 @@
                         <Divider />
 
                         <section className="flex flex-col md:flex-row">
-                            <SectionLabel>Case Studies</SectionLabel>
-                            <div className="flex-1 space-y-16">
-                                {data.projects.map((proj, i) => (
-                                    <Reveal key={i} delay={i * 100}>
-                                        <a href={proj.link} target="_blank" className="block group">
-                                            <div className="flex items-center justify-between mb-3">
-                                                <div className="flex items-center gap-3">
-                                                    <span className="text-xs font-bold px-2 py-0.5 rounded border border-light-muted/30 dark:border-dark-muted/30 text-light-muted dark:text-dark-muted">
-                                                        {proj.category}
-                                                    </span>
-                                                </div>
-                                                {proj.stats && (
-                                                    <div className="text-right">
-                                                        <div className="text-xl font-bold font-mono text-light-accent dark:text-dark-accent">
-                                                            {proj.stats.value}
-                                                        </div>
-                                                        <div className="text-[10px] text-light-muted dark:text-dark-muted uppercase tracking-wider">
-                                                            {proj.stats.label}
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            <h3 className="font-bold text-2xl mb-3 group-hover:text-light-accent dark:group-hover:text-dark-accent transition-colors flex items-center gap-2">
-                                                {proj.title}
-                                                <Icon name="arrow-up-right" className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                            </h3>
-
-                                            <p className="text-gray-800 dark:text-gray-200 font-medium mb-4 text-lg">
-                                                {proj.context}
-                                            </p>
-
-                                            <div className="pl-4 border-l-2 border-light-border dark:border-dark-border/50 space-y-2">
-                                                {proj.actions.map((action, idx) => (
-                                                    <p key={idx} className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: action }}></p>
-                                                ))}
-                                            </div>
-                                        </a>
-                                    </Reveal>
-                                ))}
-                            </div>
-                        </section>
-
-                        <Divider />
-
-                        <section className="flex flex-col md:flex-row">
-                            <SectionLabel>Playground</SectionLabel>
+                            <SectionLabel>사이드 프로젝트</SectionLabel>
                             <div className="flex-1 grid grid-cols-1 gap-4">
                                 {data.playground.map((proj, i) => (
                                     <Reveal key={i} delay={i * 50}>
