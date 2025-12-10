@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hweemin Cho | Product Manager</title>
+    <title>조휘민 | Product Manager</title>
     
-    <!-- Font: Pretendard -->
+    <!-- Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     
     <!-- React & Tailwind -->
@@ -24,20 +24,20 @@
                         sans: ['Pretendard', '-apple-system', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        light: {
-                            bg: "#ffffff",
-                            text: "#111111",
-                            muted: "#52525B",
-                            border: "#E4E4E7",
-                            accent: "#0F766E",
-                        },
-                        dark: {
-                            bg: "#18181B",
-                            text: "#FAFAFA",
-                            muted: "#A1A1AA",
-                            border: "#27272A",
-                            card: "#27272A",
-                            accent: "#2DD4BF",
+                        bg: "#ffffff",
+                        text: "#111111",
+                        muted: "#6B7280", // Gray 500
+                        border: "#E5E7EB", // Gray 200
+                        accent: "#0F766E", // Deep Teal (지적이고 신뢰감 있는 컬러)
+                        light: "#F9FAFB", // Gray 50
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -50,58 +50,40 @@
             background-color: #ffffff; 
             color: #111111; 
             -webkit-font-smoothing: antialiased;
-            transition: background-color 0.15s, color 0.15s;
-        }
-        
-        .dark body {
-            background-color: #18181B;
-            color: #FAFAFA;
+            word-break: keep-all;
         }
 
-        .cursor-dot, .cursor-outline {
-            position: fixed; top: 0; left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%; z-index: 9999;
-            pointer-events: none; mix-blend-mode: difference;
+        /* Marker Effect */
+        .marker-highlight {
+            position: relative;
+            display: inline-block;
         }
-        .cursor-dot { width: 8px; height: 8px; background-color: rgba(255, 255, 255, 0.5); }
-        .cursor-outline {
-            width: 24px; height: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        .marker-highlight::after {
+            content: "";
+            position: absolute;
+            left: -2px; right: -2px; bottom: 2px;
+            height: 8px;
+            background-color: rgba(15, 118, 110, 0.15);
+            z-index: -1;
+            transform: skewX(-10deg);
         }
-        body.hovering .cursor-outline {
-            width: 40px; height: 40px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: transparent;
-        }
-        @media (hover: none) and (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } }
 
-        .highlight {
-            background: linear-gradient(120deg, rgba(15, 118, 110, 0.15) 0%, rgba(15, 118, 110, 0.15) 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 40%;
-            background-position: 0 88%;
-            transition: background-size 0.2s ease;
-            padding: 0 2px;
-            border-radius: 2px;
-        }
-        .dark .highlight {
-             background: linear-gradient(120deg, rgba(45, 212, 191, 0.2) 0%, rgba(45, 212, 191, 0.2) 100%);
-             background-size: 100% 40%;
-             background-position: 0 88%;
-        }
-        .group:hover .highlight { background-size: 100% 100%; }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .dark .glass {
-            background: rgba(24, 24, 27, 0.85);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+        /* Custom Cursor */
+        @media (hover: hover) {
+            .cursor-dot {
+                width: 8px; height: 8px; background: #111; opacity: 0.4;
+                position: fixed; top: 0; left: 0; border-radius: 50%;
+                pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+            }
+            .cursor-outline {
+                width: 32px; height: 32px; border: 1px solid rgba(0,0,0,0.2);
+                position: fixed; top: 0; left: 0; border-radius: 50%;
+                pointer-events: none; z-index: 9998; transform: translate(-50%, -50%);
+                transition: all 0.1s ease-out;
+            }
+            body.hovering .cursor-outline {
+                width: 50px; height: 50px; background: rgba(0,0,0,0.04); border-color: transparent;
+            }
         }
     </style>
 </head>
@@ -111,202 +93,123 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
+        // --- 데이터 구성: 스토리 흐름에 맞춰 재배치 ---
         const data = {
-            name: "조휘민 Hweemin Cho",
-            role: "프로덕트 매니저",
-            bio: "데이터로 문제를 정의하고, 기술로 솔루션을 검증합니다.\n아이디어를 실제 서비스로 구현하는 메이커형 기획자입니다.",
-            contact: {
+            profile: {
+                name: "조휘민",
+                role: "Product Manager",
+                school: "세종대학교 건설환경공학",
                 email: "jowheemin@gmail.com",
                 github: "https://github.com/wheemin1",
-                location: "Seoul, Korea"
+                intro: "데이터로 문제를 정의하고,\n기술로 솔루션을 검증합니다.",
+                keywords: ["Data-Driven", "Problem Solver", "Maker"]
             },
-            experience: [
+            // [섹션 1] 하이라이트 프로젝트: 면접관이 가장 먼저 봐야 할 것들
+            highlightProjects: [
                 {
-                    year: "2025.01 — 09",
-                    company: "DailySnap",
-                    role: "Product Manager (Side Project)",
-                    what: "매일 새로운 키워드로 사진을 공유하는 소셜 챌린지 앱",
-                    how: [
-                        "초기 리텐션 증대를 위한 <span class='highlight'>Gamification(배지, 랭킹)</span> 시스템 설계",
-                        "팀 내 불명확한 R&R 재정립 및 주간 스프린트 회의 주관하여 개발 속도 30% 향상",
-                        "유저 피드백 루프 구축을 통한 UI/UX 개선안 도출 및 적용"
-                    ]
-                },
-                {
-                    year: "2021 — 23",
-                    company: "ROK Marine Corps",
-                    role: "EHCT Vice Team Leader",
-                    what: "대한민국 해병대 폭발물처리팀 부팀장",
-                    how: [
-                        "예측 불가능한 작전 환경에서의 <span class='highlight'>위기 관리(Risk Management)</span> 및 팀 리딩",
-                        "비효율적인 장비 점검 프로세스를 체크리스트화하여 준비 시간 20분 단축"
-                    ]
-                }
-            ],
-            projects: [
-                {
-                    category: "AI 서비스",
-                    title: "AI 비용 40% 절감한 BM 피벗",
-                    subtitle: "Code Battle",
-                    stats: { label: "성과", value: "비용 -40%" },
-                    problem: "출시 3일만에 유저 150명 유입 성공. 하지만 AI API 호출 비용이 급증하며 수익성 악화 위기",
-                    approach: "유저 로그 분석 결과, '학습'보다 '경쟁' 요소에 높은 반응 확인. <span class='highlight'>구독형 → 건별 결제 모델</span>로 피벗 전략 수립",
-                    result: "API 호출 최적화 및 BM 전환으로 <span class='highlight'>운영 비용 40% 절감</span>. 지속 가능한 서비스 구조 확립",
-                    link: "https://codebattle.site/"
-                },
-                {
-                    category: "O2O 플랫폼",
-                    title: "45개 화면 MVP 설계 및 협업 리딩",
-                    subtitle: "RomRom",
-                    stats: { label: "규모", value: "45개 화면" },
-                    problem: "물물교환 시장의 고질적 문제: 신뢰도 부족 + 가치 산정의 어려움",
-                    approach: "<span class='highlight'>AI 가격 추천 모델</span> 도입 기획. 45개 화면의 상세 PRD 작성 및 디자이너 1명, 개발자 4명과 협업 리딩",
-                    result: "실시간 채팅(RabbitMQ) 아키텍처 도입. 현재 <span class='highlight'>구글 플레이스토어 내부 테스트</span> 진행 중 (1월 런칭 예정)",
+                    id: "romrom",
+                    category: "기획력 · Planning", // 태그: 이 프로젝트로 증명할 역량
+                    title: "45개의 화면, 하나의 PRD.",
+                    subtitle: "위치 기반 물물교환 플랫폼 '롬롬'",
+                    desc: "추상적인 아이디어를 구체적인 문서로 만드는 데 강점이 있습니다. 개발자 4명, 디자이너 1명과 협업하기 위해 <span class='marker-highlight'>45장 분량의 상세 기획서(PRD)</span>를 작성하고 MVP 런칭을 리딩했습니다.",
+                    metrics: [
+                        { label: "기획 산출물", value: "45 Screens" },
+                        { label: "협업 인원", value: "6 Members" }
+                    ],
                     link: "https://github.com/TEAM-ROMROM"
                 },
                 {
-                    category: "EdTech",
-                    title: "24시간 만에 90% 사용률 달성",
-                    subtitle: "전공 퀴즈 웹",
-                    stats: { label: "속도", value: "24시간" },
-                    problem: "시험 기간, 100문제 정답지가 없어 학우들의 학습 효율 저하",
-                    approach: "복잡한 기능 배제. '퀴즈 풀기 + 정답 확인'만 집중한 <span class='highlight'>초경량 MVP</span>를 24시간 만에 개발·배포",
-                    result: "학과 단톡방 바이럴로 <span class='highlight'>수강생 90% 이상</span>이 사용. 실질적 문제 해결 능력 증명",
+                    id: "codebattle",
+                    category: "비즈니스 감각 · Business",
+                    title: "300명의 유저, 그리고 피벗.",
+                    subtitle: "AI 코딩 배틀 플랫폼 '코드배틀'",
+                    desc: "1인 개발로 <span class='marker-highlight'>300명의 유저</span>를 모았습니다. 운영 중 AI 비용 문제가 발생하자, 로그 데이터를 분석해 '경쟁' 중심의 건별 결제 모델로 <span class='marker-highlight'>피벗(Pivot)</span>하여 지속 가능성을 확보했습니다.",
+                    metrics: [
+                        { label: "가입 유저", value: "300+" },
+                        { label: "비용 절감", value: "-40%" }
+                    ],
+                    link: "https://codebattle.site/"
+                },
+                {
+                    id: "univquiz",
+                    category: "문제해결력 · Quick Win",
+                    title: "불편함을 해결하는 시간, 24시간.",
+                    subtitle: "전공 시험 대비 퀴즈 웹",
+                    desc: "시험 기간 '정답지가 없다'는 학우들의 불만(Pain Point)을 포착했습니다. 복잡한 기능은 모두 버리고, 핵심 기능만 담은 MVP를 <span class='marker-highlight'>24시간 만에 배포</span>해 학과 공식 툴로 만들었습니다.",
+                    metrics: [
+                        { label: "개발 소요", value: "24 Hours" },
+                        { label: "사용률", value: "90% Active" }
+                    ],
                     link: "#"
                 }
             ],
+            // [섹션 2] 경력: 신뢰도 보강
+            experience: [
+                {
+                    company: "DailySnap",
+                    role: "Product Manager",
+                    period: "2025.01 — 2025.09",
+                    desc: "매일 새로운 키워드 사진 챌린지 앱 기획. 초기 리텐션 전략 수립 및 디자이너/개발자 협업 리딩."
+                },
+                {
+                    company: "ROK Marine Corps",
+                    role: "EHCT Vice Team Leader",
+                    period: "2021 — 2023",
+                    desc: "폭발물처리팀 부팀장. 예측 불가능한 환경에서의 위기관리 및 팀 운영 리더십."
+                }
+            ],
+            // [섹션 3] 기타: 호기심 충족
             playground: [
-                { title: "TimeSync", desc: "글로벌 팀을 위한 시차 자동 변환 미팅 스케줄러", link: "https://globalmeetingtime.netlify.app/" },
-                { title: "MoCheck", desc: "비개발자를 위한 웹 성능 지표(Lighthouse) 시각화 도구", link: "https://mocheck.netlify.app/" },
-                { title: "SecureNote", desc: "이미지 내 민감한 GPS 메타데이터 자동 제거 웹앱", link: "https://securegps.netlify.app/" }
+                { title: "TimeSync", desc: "글로벌 시차 변환 툴", link: "https://globalmeetingtime.netlify.app/" },
+                { title: "MoCheck", desc: "웹 성능 시각화", link: "https://mocheck.netlify.app/" },
+                { title: "SecureNote", desc: "GPS 메타데이터 제거", link: "https://securegps.netlify.app/" }
             ]
         };
 
-        const useCustomCursor = () => {
-            const cursorDotRef = useRef(null);
-            const cursorOutlineRef = useRef(null);
+        // --- Components ---
 
-            useEffect(() => {
-                const moveCursor = (e) => {
-                    const { clientX, clientY } = e;
-                    if (cursorDotRef.current) {
-                        cursorDotRef.current.style.left = `${clientX}px`;
-                        cursorDotRef.current.style.top = `${clientY}px`;
-                    }
-                    if (cursorOutlineRef.current) {
-                        cursorOutlineRef.current.animate({
-                            left: `${clientX}px`,
-                            top: `${clientY}px`
-                        }, { duration: 100, fill: "forwards" });
-                    }
-                };
-                
-                const handleMouseOver = (e) => {
-                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
-                        document.body.classList.add('hovering');
-                    } else {
-                        document.body.classList.remove('hovering');
-                    }
-                };
-
-                window.addEventListener("mousemove", moveCursor);
-                window.addEventListener("mouseover", handleMouseOver);
-
-                return () => {
-                    window.removeEventListener("mousemove", moveCursor);
-                    window.removeEventListener("mouseover", handleMouseOver);
-                };
-            }, []);
-
-            return { cursorDotRef, cursorOutlineRef };
-        };
-
-        const useScrollProgress = () => {
-            const [progress, setProgress] = useState(0);
+        const Cursor = () => {
+            const dot = useRef(null);
+            const outline = useRef(null);
             
             useEffect(() => {
-                const handleScroll = () => {
-                    const totalScroll = document.documentElement.scrollTop;
-                    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scroll = `${totalScroll / windowHeight}`;
-                    setProgress(Number(scroll));
+                const move = (e) => {
+                    if (dot.current) { dot.current.style.left = `${e.clientX}px`; dot.current.style.top = `${e.clientY}px`; }
+                    if (outline.current) { 
+                        outline.current.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: "forwards" });
+                    }
                 }
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
+                const hover = () => document.body.classList.add('hovering');
+                const leave = () => document.body.classList.remove('hovering');
+                
+                window.addEventListener('mousemove', move);
+                document.querySelectorAll('a, button').forEach(el => {
+                    el.addEventListener('mouseenter', hover);
+                    el.addEventListener('mouseleave', leave);
+                });
+                return () => window.removeEventListener('mousemove', move);
             }, []);
-            return progress;
-        };
-
-        const useDarkMode = () => {
-            const [theme, setTheme] = useState(
-                localStorage.getItem('theme') ? localStorage.getItem('theme') : 
-                window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            return (
+                <>
+                    <div ref={dot} className="cursor-dot hidden md:block"></div>
+                    <div ref={outline} className="cursor-outline hidden md:block"></div>
+                </>
             );
-
-            useEffect(() => {
-                const root = window.document.documentElement;
-                if (theme === 'dark') {
-                    root.classList.add('dark');
-                } else {
-                    root.classList.remove('dark');
-                }
-                localStorage.setItem('theme', theme);
-            }, [theme]);
-
-            return [theme, setTheme];
         };
 
         const Reveal = ({ children, delay = 0 }) => {
             const ref = useRef(null);
             const [isVisible, setIsVisible] = useState(false);
-
             useEffect(() => {
                 const observer = new IntersectionObserver(([entry]) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                        observer.unobserve(entry.target);
-                    }
+                    if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(entry.target); }
                 }, { threshold: 0.1 });
-                
                 if (ref.current) observer.observe(ref.current);
-                return () => { if(ref.current) observer.disconnect(); }
             }, []);
-
             return (
-                <div ref={ref} className={`transition-all duration-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`} style={{ transitionDelay: `${delay}ms` }}>
+                <div ref={ref} className={`transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${delay}ms` }}>
                     {children}
                 </div>
-            );
-        };
-
-        const MagneticButton = ({ children, className, onClick, href }) => {
-            const btnRef = useRef(null);
-            
-            const handleMouseMove = (e) => {
-                const { clientX, clientY } = e;
-                const { left, top, width, height } = btnRef.current.getBoundingClientRect();
-                const x = (clientX - (left + width / 2)) / 6;
-                const y = (clientY - (top + height / 2)) / 6;
-                btnRef.current.style.transform = `translate(${x}px, ${y}px)`;
-            };
-
-            const handleMouseLeave = () => {
-                btnRef.current.style.transform = 'translate(0px, 0px)';
-            };
-
-            const Wrapper = href ? 'a' : 'button';
-            const props = href ? { href, target: "_blank" } : { onClick };
-
-            return (
-                <Wrapper 
-                    ref={btnRef} 
-                    className={`inline-block transition-transform duration-200 ease-out ${className}`}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    {...props}
-                >
-                    {children}
-                </Wrapper>
             );
         };
 
@@ -315,176 +218,132 @@
             return <i data-lucide={name} className={className}></i>;
         };
 
-        const SectionLabel = ({ children }) => (
-            <h2 className="text-xs font-bold text-light-muted dark:text-dark-muted uppercase tracking-widest mb-6 md:mb-0 md:w-32 flex-shrink-0 pt-1">
-                {children}
-            </h2>
-        );
-
-        const Divider = () => <hr className="border-t border-light-border dark:border-dark-border my-12" />;
-
+        // --- Main App ---
         const App = () => {
-            const { cursorDotRef, cursorOutlineRef } = useCustomCursor();
-            const scrollProgress = useScrollProgress();
-            const [theme, setTheme] = useDarkMode();
-
-            const toggleTheme = () => {
-                setTheme(theme === 'dark' ? 'light' : 'dark');
-            };
-
             return (
-                <div className="min-h-screen bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-150">
+                <div className="min-h-screen bg-bg text-text relative">
+                    <Cursor />
                     
-                    <div ref={cursorDotRef} className="cursor-dot hidden md:block"></div>
-                    <div ref={cursorOutlineRef} className="cursor-outline hidden md:block"></div>
-
-                    <nav className="fixed top-0 w-full z-40 glass transition-all duration-150">
-                        <div className="h-0.5 bg-light-accent dark:bg-dark-accent transition-all duration-100 ease-out" style={{ width: `${scrollProgress * 100}%` }}></div>
-                        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-                            <span className="font-bold text-sm tracking-tight opacity-0 md:opacity-100 transition-opacity">H. Cho</span>
-                            <div className="flex items-center gap-4">
-                                <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                                    {theme === 'dark' ? <Icon name="sun" className="w-4 h-4" /> : <Icon name="moon" className="w-4 h-4" />}
-                                </button>
+                    {/* Sticky Header */}
+                    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-border/50">
+                        <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+                            <span className="font-bold text-lg tracking-tight">H. Cho</span>
+                            <div className="text-xs font-medium text-muted flex gap-4">
+                                <a href={`mailto:${data.profile.email}`} className="hover:text-text transition-colors">Email</a>
+                                <a href={data.profile.github} target="_blank" className="hover:text-text transition-colors">Github</a>
                             </div>
                         </div>
                     </nav>
 
-                    <div className="max-w-3xl mx-auto px-6 py-32 md:py-40">
+                    <main className="max-w-3xl mx-auto px-6 pt-32 pb-32">
                         
+                        {/* 1. Intro Section: 짧고 강렬하게 */}
                         <Reveal>
-                            <header className="mb-20">
-                                <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-                                    {data.name}
+                            <header className="mb-24">
+                                <div className="flex gap-2 mb-6">
+                                    {data.profile.keywords.map(k => (
+                                        <span key={k} className="px-2 py-1 bg-light border border-border rounded text-[11px] font-bold uppercase tracking-wider text-muted">
+                                            {k}
+                                        </span>
+                                    ))}
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-bold leading-[1.2] mb-6 whitespace-pre-line">
+                                    {data.profile.intro}
                                 </h1>
-                                <p className="text-xl md:text-2xl text-light-muted dark:text-dark-muted font-medium mb-8">
-                                    {data.role}
-                                </p>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed whitespace-pre-line max-w-lg mb-10">
-                                    {data.bio}
-                                </p>
-                                
-                                <div className="flex gap-4 text-sm font-medium">
-                                    <MagneticButton href={`mailto:${data.contact.email}`} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-light-text dark:bg-white text-white dark:text-black hover:bg-light-accent dark:hover:bg-dark-accent transition-colors shadow-sm">
-                                        <Icon name="mail" className="w-4 h-4" /> Email Me
-                                    </MagneticButton>
-                                    <MagneticButton href={data.contact.github} className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-light-border dark:border-dark-border hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                                        <Icon name="github" className="w-4 h-4" /> Github
-                                    </MagneticButton>
+                                <div className="text-muted text-lg font-medium">
+                                    <p>{data.profile.name} <span className="text-gray-300 mx-2">|</span> {data.profile.role}</p>
+                                    <p className="text-sm mt-1 opacity-70">{data.profile.school}</p>
                                 </div>
                             </header>
                         </Reveal>
 
-                        <Divider />
+                        <div className="w-full h-px bg-border mb-20"></div>
 
-                        {/* 주요 프로젝트 - 맨 위로 */}
-                        <section className="flex flex-col md:flex-row">
-                            <SectionLabel>주요 프로젝트</SectionLabel>
-                            <div className="flex-1 space-y-16">
-                                {data.projects.map((proj, i) => (
-                                    <Reveal key={i} delay={i * 100}>
-                                        <a href={proj.link} target="_blank" className="block group">
-                                            <div className="flex items-center justify-between mb-3">
-                                                <div className="flex items-center gap-3">
-                                                    <span className="text-xs font-bold px-2 py-0.5 rounded border border-light-muted/30 dark:border-dark-muted/30 text-light-muted dark:text-dark-muted">
-                                                        {proj.category}
-                                                    </span>
-                                                </div>
-                                                {proj.stats && (
-                                                    <div className="text-right">
-                                                        <div className="text-xl font-bold font-mono text-light-accent dark:text-dark-accent">
-                                                            {proj.stats.value}
-                                                        </div>
-                                                        <div className="text-[10px] text-light-muted dark:text-dark-muted uppercase tracking-wider">
-                                                            {proj.stats.label}
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            <h3 className="font-bold text-2xl mb-1 group-hover:text-light-accent dark:group-hover:text-dark-accent transition-colors">
-                                                {proj.title}
-                                            </h3>
-                                            <p className="text-sm text-light-muted dark:text-dark-muted mb-4">{proj.subtitle}</p>
-
-                                            <div className="space-y-3">
-                                                <div>
-                                                    <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">🚨 문제</span>
-                                                    <p className="text-gray-800 dark:text-gray-200 mt-1 leading-relaxed">{proj.problem}</p>
-                                                </div>
-                                                <div>
-                                                    <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">♟️ 접근</span>
-                                                    <p className="text-gray-600 dark:text-gray-400 mt-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: proj.approach }}></p>
-                                                </div>
-                                                <div>
-                                                    <span className="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-wider">📈 성과</span>
-                                                    <p className="text-gray-600 dark:text-gray-400 mt-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: proj.result }}></p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </Reveal>
-                                ))}
-                            </div>
-                        </section>
-
-                        <Divider />
-
-                        {/* 경력 */}
-                        <section className="flex flex-col md:flex-row">
-                            <SectionLabel>경력</SectionLabel>
-                            <div className="flex-1 space-y-12">
-                                {data.experience.map((exp, i) => (
-                                    <Reveal key={i} delay={i * 100}>
-                                        <div className="group">
-                                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                                                <h3 className="font-bold text-xl">{exp.company}</h3>
-                                                <span className="text-sm text-light-muted dark:text-dark-muted font-mono">{exp.year}</span>
-                                            </div>
-                                            <p className="text-sm font-semibold text-light-accent dark:text-dark-accent mb-3">{exp.role}</p>
-                                            <p className="text-gray-800 dark:text-gray-200 font-medium mb-2">{exp.what}</p>
-                                            <ul className="space-y-1">
-                                                {exp.how.map((item, idx) => (
-                                                    <li key={idx} className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed flex items-start">
-                                                        <span className="mr-2 mt-1.5 w-1 h-1 rounded-full bg-light-muted dark:bg-dark-muted shrink-0"></span>
-                                                        <span dangerouslySetInnerHTML={{ __html: item }}></span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                        {/* 2. Highlight Projects: 스토리 흐름의 핵심 */}
+                        <section className="space-y-32 mb-32">
+                            {data.highlightProjects.map((proj, i) => (
+                                <Reveal key={i}>
+                                    <a href={proj.link} target="_blank" className="block group">
+                                        {/* Tag */}
+                                        <div className="mb-4">
+                                            <span className="text-accent font-bold text-xs uppercase tracking-widest border-b border-accent pb-1">
+                                                {proj.category}
+                                            </span>
                                         </div>
-                                    </Reveal>
-                                ))}
-                            </div>
+                                        
+                                        {/* Title (The Hook) */}
+                                        <h2 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-accent transition-colors flex items-center gap-3">
+                                            {proj.title}
+                                            <Icon name="arrow-up-right" className="w-6 h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                                        </h2>
+                                        
+                                        {/* Subtitle */}
+                                        <p className="text-lg font-medium text-gray-800 mb-6">
+                                            {proj.subtitle}
+                                        </p>
+
+                                        {/* Description */}
+                                        <p className="text-muted text-lg leading-relaxed mb-8 max-w-2xl" dangerouslySetInnerHTML={{ __html: proj.desc }}></p>
+
+                                        {/* Metrics Grid */}
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-l-2 border-light pl-6">
+                                            {proj.metrics.map((m, idx) => (
+                                                <div key={idx}>
+                                                    <div className="text-2xl font-bold font-mono text-text">{m.value}</div>
+                                                    <div className="text-xs text-muted uppercase font-bold tracking-wider mt-1">{m.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </a>
+                                </Reveal>
+                            ))}
                         </section>
 
-                        <Divider />
+                        <div className="w-full h-px bg-border mb-20"></div>
 
-                        <section className="flex flex-col md:flex-row">
-                            <SectionLabel>사이드 프로젝트</SectionLabel>
-                            <div className="flex-1 grid grid-cols-1 gap-4">
-                                {data.playground.map((proj, i) => (
-                                    <Reveal key={i} delay={i * 50}>
-                                        <a href={proj.link} target="_blank" className="flex justify-between items-center group py-4 border-b border-light-border dark:border-dark-border/30 hover:bg-gray-50 dark:hover:bg-white/5 transition-all px-3 -mx-3 rounded-lg">
-                                            <div>
-                                                <span className="font-medium group-hover:text-light-accent dark:group-hover:text-dark-accent transition-colors block mb-1">
-                                                    {proj.title}
-                                                </span>
-                                                <span className="text-sm text-gray-500 dark:text-gray-400 block">
-                                                    {proj.desc}
-                                                </span>
+                        {/* 3. Experience & Playground: 신뢰와 관심 */}
+                        <div className="grid md:grid-cols-2 gap-16">
+                            {/* Experience */}
+                            <Reveal delay={100}>
+                                <section>
+                                    <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Career</h3>
+                                    <div className="space-y-10">
+                                        {data.experience.map((exp, i) => (
+                                            <div key={i}>
+                                                <h4 className="font-bold text-lg mb-1">{exp.company}</h4>
+                                                <div className="text-sm text-accent font-medium mb-2">{exp.role}</div>
+                                                <p className="text-sm text-muted leading-relaxed mb-2">{exp.desc}</p>
+                                                <div className="text-xs text-gray-400 font-mono">{exp.period}</div>
                                             </div>
-                                            <Icon name="chevron-right" className="w-4 h-4 text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
-                                        </a>
-                                    </Reveal>
-                                ))}
-                            </div>
-                        </section>
+                                        ))}
+                                    </div>
+                                </section>
+                            </Reveal>
 
-                        <footer className="mt-32 pt-8 border-t border-light-border dark:border-dark-border flex justify-between text-xs text-light-muted dark:text-dark-muted uppercase font-bold tracking-widest opacity-60">
-                            <span>© 2025 Hweemin Cho</span>
-                            <span className="flex items-center gap-1">Designed in Seoul <div className="w-1.5 h-1.5 rounded-full bg-light-accent dark:bg-dark-accent animate-pulse"></div></span>
-                        </footer>
+                            {/* Playground */}
+                            <Reveal delay={200}>
+                                <section>
+                                    <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Playground</h3>
+                                    <div className="space-y-4">
+                                        {data.playground.map((proj, i) => (
+                                            <a key={i} href={proj.link} target="_blank" className="flex items-center justify-between group py-3 border-b border-light hover:border-gray-200 transition-colors">
+                                                <div>
+                                                    <div className="font-medium group-hover:text-accent transition-colors">{proj.title}</div>
+                                                    <div className="text-xs text-muted">{proj.desc}</div>
+                                                </div>
+                                                <Icon name="chevron-right" className="w-4 h-4 text-gray-300 group-hover:text-text transition-colors" />
+                                            </a>
+                                        ))}
+                                    </div>
+                                </section>
+                            </Reveal>
+                        </div>
 
-                    </div>
+                    </main>
+
+                    <footer className="py-8 border-t border-border text-center">
+                        <p className="text-xs text-muted uppercase tracking-widest font-bold">© 2025 Hweemin Cho. All Rights Reserved.</p>
+                    </footer>
                 </div>
             );
         };
