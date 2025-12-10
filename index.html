@@ -421,12 +421,12 @@
                                 <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Playground</h3>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {data.playground.map((proj, i) => (
-                                        <a key={i} href={proj.link} target="_blank" className="group block p-6 border-2 border-border rounded-xl hover:border-accent hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                                        <a key={i} href={proj.link} target="_blank" className="group block p-6 border border-border rounded-lg hover:border-accent transition-colors cursor-pointer">
                                             <div className="flex items-center justify-between mb-2">
-                                                <h4 className="font-bold group-hover:text-accent transition-colors">{proj.title}</h4>
-                                                <Icon name="external-link" className="w-4 h-4 text-muted group-hover:text-accent group-hover:scale-110 transition-all" />
+                                                <h4 className="font-medium group-hover:text-accent transition-colors">{proj.title}</h4>
+                                                <Icon name="external-link" className="w-4 h-4 text-muted group-hover:text-accent transition-colors" />
                                             </div>
-                                            <p className="text-xs text-muted group-hover:text-gray-700 transition-colors">{proj.desc}</p>
+                                            <p className="text-xs text-muted">{proj.desc}</p>
                                         </a>
                                     ))}
                                 </div>
