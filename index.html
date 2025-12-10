@@ -119,9 +119,9 @@
                     id: "romrom",
                     category: "기획력 · Planning",
                     title: "45개의 화면, 하나의 PRD.",
-                    subtitle: "위치 기반 물물교환 플랫폼 '롬롬'",
+                    subtitle: "AI 가치 기반 물물교환 플랫폼 '롬롬'",
                     role: "기획총괄 · PM · QA",
-                    period: "2024.09 - ",
+                    period: "2024.09 - 진행중",
                     desc: "기획 총괄로서 7인 팀의 개발 방향성을 수립하고 전체 회의를 주도했습니다. 특히 개발 모호함을 없애기 위해 45개 앱 페이지 전반의 UI/UX와 기능 명세가 담긴 <span class='marker-highlight'>상세 기획서(PRD)</span>를 직접 작성했습니다. 현재는 QA와 스토어 심사까지 수행하며 프로덕트 런칭을 완주하고 있습니다.",
                     tools: ["Figma", "Notion", "Github"],
                     image: "./Group 615.png",
@@ -313,13 +313,14 @@
                                             </span>
                                         </div>
                                         
-                                        {/* Title (Clickable) */}
-                                        <a href={proj.link} target="_blank" className="group inline-block mb-3">
-                                            <h2 className="text-3xl md:text-4xl font-bold group-hover:text-accent transition-colors flex items-center gap-3">
-                                                {proj.title}
-                                                <Icon name="arrow-up-right" className="w-6 h-6 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                                            </h2>
-                                        </a>
+                                        {/* Title with CTA Button */}
+                                        <div className="flex items-center justify-between mb-3">
+                                            <h2 className="text-3xl md:text-4xl font-bold">{proj.title}</h2>
+                                            <a href={proj.link} target="_blank" className="inline-flex items-center gap-2 text-sm text-accent hover:gap-3 transition-all group flex-shrink-0">
+                                                <span className="font-medium">자세히 보기</span>
+                                                <Icon name="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </a>
+                                        </div>
                                         
                                         {/* Subtitle with Role & Period */}
                                         <p className="text-lg font-medium mb-6">
@@ -372,12 +373,6 @@
                                                 />
                                             </div>
                                         )}
-                                        
-                                        {/* Click Affordance (Clickable) */}
-                                        <a href={proj.link} target="_blank" className="inline-flex items-center gap-2 text-sm text-accent hover:gap-3 transition-all group">
-                                            <span className="font-medium">자세히 보기</span>
-                                            <Icon name="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </a>
                                     </div>
                                 </Reveal>
                             ))}
