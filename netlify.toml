@@ -1,9 +1,13 @@
 [build]
   publish = "."
-  command = ""
+  command = "echo 'No build required'"
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Always deploy, ignore build checks
+[build.ignore]
+  ignore = false
 
 [[redirects]]
   from = "/"
