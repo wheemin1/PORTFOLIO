@@ -339,13 +339,13 @@
                                             ))}
                                         </div>
 
-                                        {/* Image: Constrained Size Below Metrics */}
+                                        {/* Image: Center Aligned with Constrained Size */}
                                         {proj.image && (
-                                            <div className="mt-8 max-w-2xl">
+                                            <div className="mt-10 mb-8 flex justify-center">
                                                 <img 
                                                     src={proj.image} 
                                                     alt={proj.subtitle}
-                                                    className="w-full h-auto rounded-lg opacity-90 group-hover:opacity-100 transition-opacity"
+                                                    className="max-w-[70%] h-auto rounded-lg opacity-90 group-hover:opacity-100 transition-opacity"
                                                 />
                                             </div>
                                         )}
