@@ -5,10 +5,6 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Always deploy, ignore build checks
-[build.ignore]
-  ignore = false
-
 [[redirects]]
   from = "/"
   to = "/index.html"
