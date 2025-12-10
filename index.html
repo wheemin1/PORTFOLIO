@@ -141,7 +141,10 @@
                     period: "2024.06 - 현재",
                     desc: "1인 개발로 런칭하여 <span class='marker-highlight'>일주일 만에 가입자 330명</span>을 달성했습니다. 하지만 토큰 기반 API 비용이 광고 수익(AdMob)을 초과하는 구조적 문제를 발견했습니다. 단순히 유저를 늘리기보다 지속 가능한 BM이 우선이라 판단하여, 오픈 한 달 만에 과감히 서비스를 잠정 중단했습니다. 서비스의 시작부터 '종료'까지 경험했습니다.",
                     tools: ["React", "Supabase", "OpenAI API", "Vercel"],
-                    image: "https://placehold.co/600x400/0F766E/FFFFFF?text=CodeBattle+Mockup",
+                    images: [
+                        { src: "./codeweb.png", caption: "In-game Play Screen (AI Code Battle)" },
+                        { src: "./user.png", caption: "343 Real Users (1 Week Retention)" }
+                    ],
                     metrics: [
                         { value: "330 Users", label: "출시 1주 만에 달성" },
                         { value: "$0 Marketing", label: "마케팅 비용 0원" },
@@ -365,8 +368,23 @@
                                             ))}
                                         </div>
 
-                                        {/* Image: Static Display Only */}
-                                        {proj.image && (
+                                        {/* Images: 50:50 Split Layout */}
+                                        {proj.images && proj.images.length > 0 && (
+                                            <div className="mt-10 mb-8 grid grid-cols-2 gap-6">
+                                                {proj.images.map((img, idx) => (
+                                                    <div key={idx} className="flex flex-col">
+                                                        <img 
+                                                            src={img.src} 
+                                                            alt={img.caption}
+                                                            className="w-full h-auto rounded-lg border border-border"
+                                                        />
+                                                        <p className="text-xs text-muted text-center mt-2">{img.caption}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                        {/* Single Image Fallback */}
+                                        {proj.image && !proj.images && (
                                             <div className="mt-10 mb-8 flex justify-center">
                                                 <img 
                                                     src={proj.image} 
