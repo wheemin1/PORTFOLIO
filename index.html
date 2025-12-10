@@ -105,8 +105,8 @@
         const data = {
             profile: {
                 name: "조휘민",
-                role: "Product Manager",
-                school: "세종대학교 건설환경공학",
+                role: "Product Manager / 기획자",
+                school: "세종대학교 건설환경공학과",
                 email: "jowheemin@gmail.com",
                 github: "https://github.com/wheemin1",
                 intro: "데이터로 문제를 정의하고,\n기술로 솔루션을 검증합니다.",
@@ -119,13 +119,15 @@
                     id: "romrom",
                     category: "기획력 · Planning",
                     title: "45개의 화면, 하나의 PRD.",
-                    subtitle: "위치 기반 물물교환 플랫폼 '롬롬'",
+                    subtitle: "AI 기반 물물교환 플랫폼 '롬롬'",
+                    role: "기획총괄 · PM · QA",
+                    period: "2023.09 - 2023.12",
                     desc: "추상적인 아이디어를 구체적인 문서로 만드는 데 강점이 있습니다. 개발자 4명, 디자이너 1명과 협업하기 위해 <span class='marker-highlight'>45장 분량의 상세 기획서(PRD)</span>를 작성하고 MVP 런칭을 리딩했습니다.",
-                    tools: ["Figma", "Jira", "Notion"],
+                    tools: ["Figma", "Notion", "Github"],
                     image: "./Group 615.png",
                     metrics: [
                         { label: "기획 산출물", value: "45 Screens" },
-                        { label: "협업 인원", value: "6 Members" }
+                        { label: "협업 인원", value: "7 Members" }
                     ],
                     link: "https://github.com/TEAM-ROMROM"
                 },
@@ -134,6 +136,8 @@
                     category: "비즈니스 감각 · Business",
                     title: "300명의 유저, 그리고 피벗.",
                     subtitle: "AI 코딩 배틀 플랫폼 '코드배틀'",
+                    role: "1인 개발 · 운영",
+                    period: "2024.06 - 현재",
                     desc: "1인 개발로 <span class='marker-highlight'>300명의 유저</span>를 모았습니다. 운영 중 AI 비용 문제가 발생하자, 로그 데이터를 분석해 '경쟁' 중심의 건별 결제 모델로 <span class='marker-highlight'>피벗(Pivot)</span>하여 지속 가능성을 확보했습니다.",
                     tools: ["React", "Supabase", "OpenAI API", "Vercel"],
                     image: "https://placehold.co/600x400/0F766E/FFFFFF?text=CodeBattle+Mockup",
@@ -148,6 +152,8 @@
                     category: "문제해결력 · Quick Win",
                     title: "불편함을 해결하는 시간, 24시간.",
                     subtitle: "전공 시험 대비 퀴즈 웹",
+                    role: "1인 개발",
+                    period: "2024.11 (24시간)",
                     desc: "시험 기간 '정답지가 없다'는 학우들의 불만(Pain Point)을 포착했습니다. 복잡한 기능은 모두 버리고, 핵심 기능만 담은 MVP를 <span class='marker-highlight'>24시간 만에 배포</span>해 학과 공식 툴로 만들었습니다.",
                     tools: ["HTML/CSS", "JavaScript", "Netlify"],
                     image: "https://placehold.co/600x400/0F766E/FFFFFF?text=Quiz+Web+Mockup",
@@ -312,9 +318,21 @@
                                             </h2>
                                         </a>
                                         
-                                        {/* Subtitle */}
-                                        <p className="text-lg font-medium text-gray-600 mb-6">
-                                            {proj.subtitle}
+                                        {/* Subtitle with Role & Period */}
+                                        <p className="text-lg font-medium mb-6">
+                                            <span className="text-gray-600">{proj.subtitle}</span>
+                                            {proj.role && (
+                                                <>
+                                                    <span className="text-gray-300 mx-3">|</span>
+                                                    <span className="text-gray-500 font-medium">{proj.role}</span>
+                                                </>
+                                            )}
+                                            {proj.period && (
+                                                <>
+                                                    <span className="text-gray-300 mx-3">|</span>
+                                                    <span className="text-gray-400 text-base">{proj.period}</span>
+                                                </>
+                                            )}
                                         </p>
 
                                         {/* Description */}
