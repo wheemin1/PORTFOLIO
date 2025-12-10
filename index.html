@@ -85,6 +85,14 @@
                 width: 50px; height: 50px; background: rgba(0,0,0,0.04); border-color: transparent;
             }
         }
+        
+        /* Enhanced Link Hover Effects */
+        a {
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -239,8 +247,8 @@
                         <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
                             <span className="font-bold text-lg tracking-tight">H. Cho</span>
                             <div className="text-xs font-medium text-muted flex gap-4">
-                                <a href={`mailto:${data.profile.email}`} className="hover:text-text transition-colors">Email</a>
-                                <a href={data.profile.github} target="_blank" className="hover:text-text transition-colors">Github</a>
+                                <a href={`mailto:${data.profile.email}`} className="hover:text-accent hover:underline transition-all cursor-pointer">Email</a>
+                                <a href={data.profile.github} target="_blank" className="hover:text-accent hover:underline transition-all cursor-pointer">Github</a>
                             </div>
                         </div>
                     </nav>
@@ -394,12 +402,12 @@
                                 <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Playground</h3>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {data.playground.map((proj, i) => (
-                                        <a key={i} href={proj.link} target="_blank" className="group block p-6 border border-border rounded-xl hover:border-accent transition-colors">
+                                        <a key={i} href={proj.link} target="_blank" className="group block p-6 border-2 border-border rounded-xl hover:border-accent hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                                             <div className="flex items-center justify-between mb-2">
                                                 <h4 className="font-bold group-hover:text-accent transition-colors">{proj.title}</h4>
-                                                <Icon name="external-link" className="w-4 h-4 text-muted group-hover:text-accent transition-colors" />
+                                                <Icon name="external-link" className="w-4 h-4 text-muted group-hover:text-accent group-hover:scale-110 transition-all" />
                                             </div>
-                                            <p className="text-xs text-muted">{proj.desc}</p>
+                                            <p className="text-xs text-muted group-hover:text-gray-700 transition-colors">{proj.desc}</p>
                                         </a>
                                     ))}
                                 </div>
