@@ -341,15 +341,15 @@
                                             ))}
                                         </div>
 
-                                        {/* Image: Clickable with Lift Effect */}
+                                        {/* Image: Static Display Only */}
                                         {proj.image && (
-                                            <a href={proj.link} target="_blank" className="block mt-10 mb-8 flex justify-center group">
+                                            <div className="mt-10 mb-8 flex justify-center">
                                                 <img 
                                                     src={proj.image} 
                                                     alt={proj.subtitle}
-                                                    className="max-w-[70%] h-auto rounded-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl"
+                                                    className="max-w-[70%] h-auto rounded-lg"
                                                 />
-                                            </a>
+                                            </div>
                                         )}
                                         
                                         {/* Click Affordance (Clickable) */}
