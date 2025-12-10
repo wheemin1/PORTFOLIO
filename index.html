@@ -297,68 +297,63 @@
                             {data.highlightProjects.map((proj, i) => (
                                 <Reveal key={i}>
                                     <a href={proj.link} target="_blank" className="block group project-card border-2 border-transparent hover:border-accent/20 rounded-2xl p-8 -m-8 transition-all">
-                                        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
-                                            {/* Left: Content (60%) */}
-                                            <div>
-                                                {/* Tag */}
-                                                <div className="mb-4">
-                                                    <span className="text-accent font-bold text-xs uppercase tracking-widest border-b border-accent pb-1">
-                                                        {proj.category}
+                                        {/* Tag */}
+                                        <div className="mb-4">
+                                            <span className="text-accent font-bold text-xs uppercase tracking-widest border-b border-accent pb-1">
+                                                {proj.category}
+                                            </span>
+                                        </div>
+                                        
+                                        {/* Title (The Hook) */}
+                                        <h2 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-accent transition-colors flex items-center gap-3">
+                                            {proj.title}
+                                            <Icon name="arrow-up-right" className="w-6 h-6 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                                        </h2>
+                                        
+                                        {/* Subtitle */}
+                                        <p className="text-lg font-medium text-gray-600 group-hover:text-gray-800 transition-colors mb-6">
+                                            {proj.subtitle}
+                                        </p>
+
+                                        {/* Description */}
+                                        <p className="text-muted text-lg leading-relaxed mb-6 max-w-2xl" dangerouslySetInnerHTML={{ __html: proj.desc }}></p>
+
+                                        {/* Tech Stack */}
+                                        {proj.tools && (
+                                            <div className="flex flex-wrap gap-2 mb-8">
+                                                {proj.tools.map((t, idx) => (
+                                                    <span key={idx} className="text-xs font-medium text-muted bg-light px-2 py-1 rounded border border-border/50">
+                                                        {t}
                                                     </span>
-                                                </div>
-                                                
-                                                {/* Title (The Hook) */}
-                                                <h2 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-accent transition-colors flex items-center gap-3">
-                                                    {proj.title}
-                                                    <Icon name="arrow-up-right" className="w-6 h-6 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                                                </h2>
-                                                
-                                                {/* Subtitle */}
-                                                <p className="text-lg font-medium text-gray-600 group-hover:text-gray-800 transition-colors mb-6">
-                                                    {proj.subtitle}
-                                                </p>
-
-                                                {/* Description */}
-                                                <p className="text-muted text-lg leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: proj.desc }}></p>
-
-                                                {/* Tech Stack */}
-                                                {proj.tools && (
-                                                    <div className="flex flex-wrap gap-2 mb-8">
-                                                        {proj.tools.map((t, idx) => (
-                                                            <span key={idx} className="text-xs font-medium text-muted bg-light px-2 py-1 rounded border border-border/50">
-                                                                {t}
-                                                            </span>
-                                                        ))}
-                                                    </div>
-                                                )}
-
-                                                {/* Metrics Grid */}
-                                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-l-2 border-light group-hover:border-accent/50 transition-colors pl-6">
-                                                    {proj.metrics.map((m, idx) => (
-                                                        <div key={idx}>
-                                                            <div className="text-2xl font-bold font-mono text-text group-hover:text-accent transition-colors">{m.value}</div>
-                                                            <div className="text-xs text-muted uppercase font-bold tracking-wider mt-1">{m.label}</div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                                
-                                                {/* Click Affordance */}
-                                                <div className="mt-6 flex items-center gap-2 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <span className="font-medium">자세히 보기</span>
-                                                    <Icon name="arrow-right" className="w-4 h-4" />
-                                                </div>
+                                                ))}
                                             </div>
+                                        )}
 
-                                            {/* Right: Image (40%) */}
-                                            {proj.image && (
-                                                <div className="hidden md:block w-[400px] flex-shrink-0">
-                                                    <img 
-                                                        src={proj.image} 
-                                                        alt={proj.subtitle}
-                                                        className="w-full h-auto rounded-xl border-2 border-border group-hover:border-accent/50 transition-all shadow-lg group-hover:shadow-xl"
-                                                    />
+                                        {/* Metrics Grid */}
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-l-2 border-light group-hover:border-accent/50 transition-colors pl-6 mb-8">
+                                            {proj.metrics.map((m, idx) => (
+                                                <div key={idx}>
+                                                    <div className="text-2xl font-bold font-mono text-text group-hover:text-accent transition-colors">{m.value}</div>
+                                                    <div className="text-xs text-muted uppercase font-bold tracking-wider mt-1">{m.label}</div>
                                                 </div>
-                                            )}
+                                            ))}
+                                        </div>
+
+                                        {/* Image: Full Width Below Metrics */}
+                                        {proj.image && (
+                                            <div className="mt-8">
+                                                <img 
+                                                    src={proj.image} 
+                                                    alt={proj.subtitle}
+                                                    className="w-full h-auto rounded-lg opacity-90 group-hover:opacity-100 transition-opacity"
+                                                />
+                                            </div>
+                                        )}
+                                        
+                                        {/* Click Affordance */}
+                                        <div className="mt-6 flex items-center gap-2 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <span className="font-medium">자세히 보기</span>
+                                            <Icon name="arrow-right" className="w-4 h-4" />
                                         </div>
                                     </a>
                                 </Reveal>
