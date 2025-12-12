@@ -106,7 +106,7 @@
             profile: {
                 name: "조휘민",
                 role: "Product Manager",
-                school: "세종대학교 건설환경공학",
+                school: "세종대학교 건설환경공학과",
                 email: "jowheemin@gmail.com",
                 github: "https://github.com/wheemin1",
                 intro: "데이터로 문제를 정의하고,\n기술로 솔루션을 검증합니다.",
@@ -156,29 +156,28 @@
             // [섹션 2] 경력: 신뢰도 보강
             experience: [
                 {
-                    company: "DailySnap",
-                    role: "Product Manager",
-                    period: "2025.01 — 2025.09",
-                    desc: "매일 새로운 키워드 사진 챌린지 앱 기획. 초기 리텐션 전략 수립 및 디자이너/개발자 협업 리딩."
+                    company: "ROK Marine Corps",
+                    role: "EOD Vice Team Leader",
+                    period: "2021 — 2023",
+                    desc: "폭발물처리대 부팀장. 예측 불가능한 현장에서의 위기관리 및 팀 운영 리더십."
                 },
                 {
-                    company: "ROK Marine Corps",
-                    role: "EHCT Vice Team Leader",
-                    period: "2021 — 2023",
-                    desc: "폭발물처리팀 부팀장. 예측 불가능한 환경에서의 위기관리 및 팀 운영 리더십."
+                    company: "Jinwon Fix",
+                    role: "Operations Support",
+                    period: "2020.03 — 2020.12",
+                    desc: "토목 시설 유지보수 프로젝트 공정 및 행정 지원. 현장-본사 간 커뮤니케이션 및 문서 데이터화 관리."
                 }
             ],
-            // [섹션 3] 기타: 호기심 충족
+            // [섹션 3] 사이드 프로젝트: MVP 제작 경험
             playground: [
-                { title: "TimeSync", desc: "글로벌 시차 변환 툴", link: "https://globalmeetingtime.netlify.app/" },
-                { title: "MoCheck", desc: "웹 성능 시각화", link: "https://mocheck.netlify.app/" },
-                { title: "SecureNote", desc: "GPS 메타데이터 제거", link: "https://securegps.netlify.app/" }
+                { title: "Global Time Sync", desc: "글로벌 협업을 위한 시차 자동 변환 툴", link: "https://globalmeetingtime.netlify.app/" },
+                { title: "MoCheck", desc: "기획자를 위한 모바일 웹 뷰어 (Webview)", link: "https://mocheck.netlify.app/" },
+                { title: "SecureNote", desc: "이미지 GPS 메타데이터 자동 제거 보안 툴", link: "https://securegps.netlify.app/" }
             ],
             // [섹션 4] 스킬셋: 실무 투입 가능성 증명
             skills: [
-                { category: "Planning", items: ["PRD/정책서 작성", "Data Analysis (SQL)", "User Research"] },
-                { category: "Tools", items: ["Figma", "Jira/Slack", "Amplitude", "Notion"] },
-                { category: "Engineering", items: ["HTML/CSS", "React (Basic)", "Python"] }
+                { category: "Planning & Data", items: ["Data Analysis (SQL, GA)", "PRD / 정책서 작성", "User Research & Usability Test"] },
+                { category: "Prototyping & Dev", items: ["React (Frontend MVP 구현)", "Python (Data Processing)", "Figma, Amplitude, Notion"] }
             ]
         };
 
@@ -441,10 +440,10 @@
 
                         <div className="w-full h-px bg-border my-20"></div>
 
-                        {/* 4. Playground: 사이드 프로젝트 */}
+                        {/* 4. Side Projects: MVP 제작 경험 */}
                         <Reveal delay={100}>
                             <section>
-                                <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Playground</h3>
+                                <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Side Projects (MVP)</h3>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {data.playground.map((proj, i) => (
                                         <a key={i} href={proj.link} target="_blank" className="group block p-6 border border-border rounded-lg hover:border-accent transition-colors cursor-pointer">
