@@ -130,7 +130,8 @@
                         { value: "7 Members", label: "팀 규모" },
                         { value: "Launching Soon", label: "스토어 출시 임박" }
                     ],
-                    link: "https://github.com/TEAM-ROMROM"
+                    link: "https://github.com/TEAM-ROMROM",
+                    downloadLink: "http://suh-project.synology.me/romrom/"
                 },
                 {
                     id: "codebattle",
@@ -318,15 +319,23 @@
                                         </div>
                                         
                                         {/* Title with Inline CTA */}
-                                        <a href={proj.link} target="_blank" className="group inline-block mb-3">
-                                            <h2 className="text-3xl md:text-4xl font-bold group-hover:text-accent transition-colors inline-flex items-baseline gap-3">
-                                                {proj.title}
-                                                <span className="text-sm font-medium text-muted group-hover:text-accent transition-colors flex items-center gap-1">
-                                                    자세히 보기
-                                                    <Icon name="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                                </span>
-                                            </h2>
-                                        </a>
+                                        <div className="flex items-baseline gap-4 mb-3">
+                                            <a href={proj.link} target="_blank" className="group inline-block">
+                                                <h2 className="text-3xl md:text-4xl font-bold group-hover:text-accent transition-colors inline-flex items-baseline gap-3">
+                                                    {proj.title}
+                                                    <span className="text-sm font-medium text-muted group-hover:text-accent transition-colors flex items-center gap-1">
+                                                        자세히 보기
+                                                        <Icon name="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                    </span>
+                                                </h2>
+                                            </a>
+                                            {proj.downloadLink && (
+                                                <a href={proj.downloadLink} target="_blank" className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors">
+                                                    <Icon name="download" className="w-4 h-4" />
+                                                    Download APK
+                                                </a>
+                                            )}
+                                        </div>
                                         
                                         {/* Subtitle with Role & Period */}
                                         <p className="text-lg font-medium mb-6">
