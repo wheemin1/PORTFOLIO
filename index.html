@@ -169,13 +169,23 @@
                     desc: "토목 시설 유지보수 프로젝트 공정 및 행정 지원. 현장-본사 간 커뮤니케이션 및 문서 데이터화 관리."
                 }
             ],
-            // [섹션 3] 사이드 프로젝트: MVP 제작 경험
+            // [섹션 3] 자격 및 어학: 역량 인증
+            certificates: [
+                {
+                    name: "Google Analytics Certification",
+                    issuer: "Google",
+                    date: "2025.12",
+                    id: "169420621",
+                    desc: "GA4 기반 데이터 분석 및 리포팅 역량 인증"
+                }
+            ],
+            // [섹션 4] 사이드 프로젝트: MVP 제작 경험
             playground: [
                 { title: "Global Time Sync", desc: "글로벌 협업을 위한 시차 자동 변환 툴", link: "https://globalmeetingtime.netlify.app/" },
                 { title: "MoCheck", desc: "기획자를 위한 웹/모바일 성능 체크 툴", link: "https://mocheck.netlify.app/" },
                 { title: "SecureNote", desc: "이미지 GPS 메타데이터 자동 제거 보안 툴", link: "https://securegps.netlify.app/" }
             ],
-            // [섹션 4] 스킬셋: 실무 투입 가능성 증명
+            // [섹션 5] 스킬셋: 실무 투입 가능성 증명
             skills: [
                 { 
                     category: "기획 및 설계", 
@@ -420,7 +430,39 @@
 
                         <div className="w-full h-px bg-border mb-20"></div>
 
-                        {/* 3. Experience & Toolbox: 신뢰와 역량 */}
+                        {/* 3. Certificates: 역량 인증 */}
+                        <Reveal delay={100}>
+                            <section className="mb-32">
+                                <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">자격 및 어학 (Certificates & Language)</h3>
+                                <div className="space-y-6">
+                                    {data.certificates.map((cert, i) => (
+                                        <div key={i} className="p-6 border border-border rounded-lg hover:border-accent transition-colors">
+                                            <div className="flex items-start justify-between mb-3">
+                                                <div>
+                                                    <h4 className="font-bold text-lg mb-1">{cert.name}</h4>
+                                                    <div className="text-sm text-muted">
+                                                        <span className="font-medium text-accent">{cert.issuer}</span>
+                                                        <span className="mx-2 text-gray-300">|</span>
+                                                        <span>취듍일: {cert.date}</span>
+                                                        {cert.id && (
+                                                            <>
+                                                                <span className="mx-2 text-gray-300">|</span>
+                                                                <span className="text-xs font-mono">자격 ID: {cert.id}</span>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p className="text-sm text-muted leading-relaxed">{cert.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        </Reveal>
+
+                        <div className="w-full h-px bg-border mb-20"></div>
+
+                        {/* 4. Experience & Toolbox: 신뢰와 역량 */}
                         <div className="grid md:grid-cols-12 gap-16">
                             {/* Experience (왼쪽 7칸) */}
                             <div className="md:col-span-7">
@@ -468,7 +510,7 @@
 
                         <div className="w-full h-px bg-border my-20"></div>
 
-                        {/* 4. Side Projects: MVP 제작 경험 */}
+                        {/* 5. Side Projects: MVP 제작 경험 */}
                         <Reveal delay={100}>
                             <section>
                                 <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Side Projects (MVP)</h3>
