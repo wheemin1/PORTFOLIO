@@ -431,38 +431,9 @@
                         <div className="w-full h-px bg-border mb-20"></div>
 
                         {/* 3. Certificates: 역량 인증 */}
-                        <Reveal delay={100}>
-                            <section className="mb-32">
-                                <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">자격 및 어학 (Certificates & Language)</h3>
-                                <div className="space-y-6">
-                                    {data.certificates.map((cert, i) => (
-                                        <div key={i} className="p-6 border border-border rounded-lg hover:border-accent transition-colors">
-                                            <div className="flex items-start justify-between mb-3">
-                                                <div>
-                                                    <h4 className="font-bold text-lg mb-1">{cert.name}</h4>
-                                                    <div className="text-sm text-muted">
-                                                        <span className="font-medium text-accent">{cert.issuer}</span>
-                                                        <span className="mx-2 text-gray-300">|</span>
-                                                        <span>취듍일: {cert.date}</span>
-                                                        {cert.id && (
-                                                            <>
-                                                                <span className="mx-2 text-gray-300">|</span>
-                                                                <span className="text-xs font-mono">자격 ID: {cert.id}</span>
-                                                            </>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p className="text-sm text-muted leading-relaxed">{cert.desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
-                        </Reveal>
-
                         <div className="w-full h-px bg-border mb-20"></div>
 
-                        {/* 4. Experience & Toolbox: 신뢰와 역량 */}
+                        {/* 3. Experience, Certificates & Toolbox: 신뢰와 역량 */}
                         <div className="grid md:grid-cols-12 gap-16">
                             {/* Experience (왼쪽 7칸) */}
                             <div className="md:col-span-7">
@@ -483,10 +454,10 @@
                                 </Reveal>
                             </div>
 
-                            {/* Toolbox (오른쪽 5칸) */}
+                            {/* Toolbox & Certificates (오른쪽 5칸) */}
                             <div className="md:col-span-5">
                                 <Reveal delay={200}>
-                                    <section>
+                                    <section className="mb-12">
                                         <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Toolbox</h3>
                                         <div className="space-y-8">
                                             {data.skills.map((skill, i) => (
@@ -504,13 +475,28 @@
                                             ))}
                                         </div>
                                     </section>
+
+                                    <section>
+                                        <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Certificates</h3>
+                                        <div className="space-y-6">
+                                            {data.certificates.map((cert, i) => (
+                                                <div key={i}>
+                                                    <div className="font-medium text-text mb-1">
+                                                        {cert.name} · <span className="text-accent">{cert.issuer}</span> ({cert.date})
+                                                        {cert.id && <span className="text-xs text-muted font-mono ml-2">/ ID: {cert.id}</span>}
+                                                    </div>
+                                                    <p className="text-sm text-muted leading-relaxed">{cert.desc}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </section>
                                 </Reveal>
                             </div>
                         </div>
 
                         <div className="w-full h-px bg-border my-20"></div>
 
-                        {/* 5. Side Projects: MVP 제작 경험 */}
+                        {/* 4. Side Projects: MVP 제작 경험 */}
                         <Reveal delay={100}>
                             <section>
                                 <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Side Projects (MVP)</h3>
