@@ -433,7 +433,27 @@
                         {/* 3. Certificates: 역량 인증 */}
                         <div className="w-full h-px bg-border mb-20"></div>
 
-                        {/* 3. Experience, Certificates & Toolbox: 신뢰와 역량 */}
+                        {/* 3. Certificates: 역량 인증 */}
+                        <Reveal delay={100}>
+                            <section className="mb-32">
+                                <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Certificates</h3>
+                                <div className="space-y-6">
+                                    {data.certificates.map((cert, i) => (
+                                        <div key={i}>
+                                            <div className="font-medium text-text mb-1">
+                                                {cert.name} · <span className="text-accent">{cert.issuer}</span> ({cert.date})
+                                                {cert.id && <span className="text-xs text-muted font-mono ml-2">/ ID: {cert.id}</span>}
+                                            </div>
+                                            <p className="text-sm text-muted leading-relaxed">{cert.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        </Reveal>
+
+                        <div className="w-full h-px bg-border mb-20"></div>
+
+                        {/* 4. Experience & Toolbox: 신뢰와 역량 */}
                         <div className="grid md:grid-cols-12 gap-16">
                             {/* Experience (왼쪽 7칸) */}
                             <div className="md:col-span-7">
@@ -454,10 +474,10 @@
                                 </Reveal>
                             </div>
 
-                            {/* Toolbox & Certificates (오른쪽 5칸) */}
+                            {/* Toolbox (오른쪽 5칸) */}
                             <div className="md:col-span-5">
                                 <Reveal delay={200}>
-                                    <section className="mb-12">
+                                    <section>
                                         <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Toolbox</h3>
                                         <div className="space-y-8">
                                             {data.skills.map((skill, i) => (
@@ -475,28 +495,13 @@
                                             ))}
                                         </div>
                                     </section>
-
-                                    <section>
-                                        <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Certificates</h3>
-                                        <div className="space-y-6">
-                                            {data.certificates.map((cert, i) => (
-                                                <div key={i}>
-                                                    <div className="font-medium text-text mb-1">
-                                                        {cert.name} · <span className="text-accent">{cert.issuer}</span> ({cert.date})
-                                                        {cert.id && <span className="text-xs text-muted font-mono ml-2">/ ID: {cert.id}</span>}
-                                                    </div>
-                                                    <p className="text-sm text-muted leading-relaxed">{cert.desc}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </section>
                                 </Reveal>
                             </div>
                         </div>
 
                         <div className="w-full h-px bg-border my-20"></div>
 
-                        {/* 4. Side Projects: MVP 제작 경험 */}
+                        {/* 5. Side Projects: MVP 제작 경험 */}
                         <Reveal delay={100}>
                             <section>
                                 <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-8">Side Projects (MVP)</h3>
